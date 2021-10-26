@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 基础练习1</title>
+</head>
+<body>
+<h1 align="center">基础：1。什么是CSS： </h1>
+<div>
+    <h3>不实用css</h3>
+    <h3>不使用css 给每一个单元格加上背景颜色</h3>
+    <h3>就需要给每一个td元素加上bgcolor属性</h3>
+    <table border="1">
+        <tr>
+            <td bgcolor="gray">1</td>
+            <td bgcolor="gray">2</td>
+        </tr>
+        <tr>
+            <td bgcolor="gray">3</td>
+            <td bgcolor="gray">4</td>
+        </tr>
+        <tr>
+            <td bgcolor="gray">a</td>
+            <td bgcolor="gray">b</td>
+        </tr>
+    </table>
+
+</div>
+
+<hr/>
+<br/>
+<!--使用css 给灭一个单元格加上背景颜色-->
+<!--只需要在最前面写一段css代码，所有的单元格便都有背景颜色-->
+<!--这是一种分层设计的思想， css 把和颜色，大小位置等信息剥离到<style>中，而html只用关心提供什么样的内容就行-->
+<!--3. 不同的td有不同的背景色,   这就涉及到 选择器 的知识-->
+
+<div>
+    <style>
+        td {
+            background-color: gray;
+        }
+    </style>
+    <table border="3">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>a</td>
+            <td>b</td>
+        </tr>
+    </table>
+</div>
+
+
+<!---->
+<hr/>
+<br/>
+<div>
+    <p align="center"><font color="red" size="+2" > 基础：css (CSS （Cascading Style Sheets，层叠样式表）)的语法:<br/>
+        selector {property:value,<br/>
+        即： 选择器{属性：值}<br/>
+        学习css 即学习有哪些选择器， 哪些属性以及可以使用什么样的值<br/>
+    </font></p>
+</div>
+
+<hr/>
+<hr/>
+<!--示例1： 选择所有的p元素-->
+<!--选择所有的p元素，并设置文字颜色为红色-->
+
+<!--示例2： 也可以直接在元素上增加style属性-->
+<!--直接在某一个元素上增加style属性即可以达到css 一样的效果-->
+<div>
+    <style>
+        p{
+            color:blue;
+        }
+    </style>
+    <p>this is a test message of p</p>
+    <p>this is a test message of p</p>
+    <p>this is a test message of p</p>
+    <h6 style="color: green">也可以直接在元素上增加style属性</h6>
+    <p style="color: blueviolet">这是style为紫色的文字测试</p>
+    <h6 >这是一个没有style的p，h6</h6>
+</div>
+
+
+<hr/>
+<hr/>
+<div >
+<!--    基础： 选择器-->
+<!--            选择器主要分为 3 种-->
+<!--                            1。 元素选择器-->
+<!--                            2. id 选择器-->
+<!--                            3。 类选择器-->
+    <p align="center" style="color: blue">CSS -----选择器：</p>
+    <!--     示例1：元素选择器- -->
+<!--   元素选择器 通过 标签名<p> 选择元素 -->
+<!--    在实例中， 所有的p的都被设置为 红色-->
+    <p align="" style="color: blue">示例1.元素选择器</p>
+    <style>
+        p{
+            color: red;
+        }
+    </style>
+    <p>p元素</p>
+    <p>p元素</p>
+    <p>p元素</p>
+
+    <hr/>
+    <h6 style="color: blue"> 示例2： id 选择器</h6>
+<!--  示例2：id 选择器 -->
+<!--    通过id 选择元素-->
+<!--    注意： 一个元素的id应该是唯一的。 另一个元素不应该重复使用-->
+    <style>
+        p{
+            color: rebeccapurple;}
+        #p1{
+            color: gray;
+        }
+        #p2{
+            color: green;
+        }
+    </style>
+    <p>没有id的p</p>
+    <p id="p1">id=p1 的p</p>
+    <p id="p2"> id = p2 的p</p>
+
+    <hr/>
+    <h6 style="color: blue"> 示例3： 类选择器</h6>
+<!--    示例3， 类选择器-->
+<!--    当需要多个元素， 都使用同样的css的时候。就会使用类选择器-->
+
+    <style>
+        p.first{
+            color: green;
+        }
+        p.second{
+            color: blue;
+        }
+    </style>
+    <p class="first">前3个</p>
+    <p class="first">前3个</p>
+    <p class="first">前3个</p>
+
+    <p class="second">后3个</p>
+    <p class="second">后3个</p>
+    <p class="second">后3个</p>
+
+    <hr/>
+    <h5 style="color: blue"> 示例4： 更准确的选择</h5>
+<!--    示例5：更准备的选择-->
+<!--    同时根据 元素名 + class 来选择-->
+<!--    p.blue-->
+    <style>
+/*        注释*/
+/*        以!* 开始*/
+/*以*!结束*/
+/*        被注释掉的文字会自动隐藏*/
+        p.blue{
+            color: blue;
+        }
+        span.blue{color: blue}
+        h3.blue{color: blue}
+    /*    */
+    </style>
+    <p class="blue">class=blue的p</p>
+    <span class="blue">class=blue的span</span>
+    <h3 class="blue">class = blue  的h3</h3>
+</div>
+<hr/>
+
+
+<hr/>
+<div>
+    <h3 class="1213" align="center">CSS 设置元素的尺寸大小</h3>
+<!--    示例1：  尺寸大小-->
+<!--    属性： width -->
+<!--    值： 可以是百分比，或者像素值-->
+<!--    为了便于观察一个元素的大小设置，进行了背景色的设置-->
+    <style>
+        p#percentage{
+            width:50%;
+            height:50%;
+            color: green;
+            background-color:pink;
+        }
+        p#pixel{
+            width:180px;
+            height:50px;
+            color: dodgerblue;
+            background-color:green;
+        }
+    </style>
+
+    <p class="1" id="percentage"> 按比例设置尺寸50%宽 50%高</p>
+
+    <p class= "2" id="pixel"> 按象素设置尺寸  180px宽 50 px高</p>
+</div>
+
+
+<hr/>
+<hr/>
+<div>
+    <h3 align="center">CSS 设置背景详解</h3>
+<!--    -->
+   <h5>示例1： 背景颜色:background-color</h5>
+<!--    示例1： 背景颜色-->
+<!--    属性名：bakground-color-->
+<!--    颜色值可以采用3种方式-->
+<!--                    1。 预定义的颜色名字-->
+<!--                            比如：red，gray，green，black，pink-->
+<!--                    2。 rgb 格式-->
+<!--                            分别代表 红绿蓝的比例rgb（250，0，255）即表示红色是满的，没有绿色，蓝色是满的，即红蓝混合在一起：紫色-->
+<!--                    3。 16进制表示-->
+<!--                             #00ff00 等同于 rgb(0,255,0)   -->
+    <style>
+        p.gray{background-color: gray}
+        h1.none{background-color: transparent}
+        h2.ff00ff{background-color: rgb(250,0,255)}
+        h3.green{background-color: #00ff00}
+    </style>
+               <p class="gray">灰色</p>
+                <h1 class="none">透明背景，默认即透明背景</h1>
+    <h2 class="ff00ff">紫色背景</h2>
+    <h3 class="green">绿色背景</h3>
+
+    <hr/>
+    <h5>示例2： 图片做背景: background-image:url(imagepath);</h5>
+    <style>
+        div#test{
+            /*background-image: url(http://www.how2j.cn/study/background.jpg);*/
+            background-image: url("background.jpg");
+            width: 200px;
+            height: 100px;
+        }
+    </style>
+    <div id="test" style="text-align: center">
+        这是一个有背景图的div
+    </div>
+
+    <hr/>
+    <h5>示例3： 背景重复: background-repeat;</h5>
+<!--    backgorun-repeat 属性-->
+<!--    值可以选-->
+<!--    repeat： 水平垂直方向都重复-->
+<!--    repeat-x： 只有在水平方向重复-->
+<!--    repeat-y： 只有在垂直方向重复-->
+<!--    no-repeat：无重复-->
+    <style>
+        div#norepeat{
+            background-image: url("background_small.jpg");
+            width: 200px;
+            height: 100px;
+            background-repeat: no-repeat;
+        }
+        div#repeat-x{
+            background-image: url("background_small.jpg");
+            width: 200px;
+            height: 100px;
+            background-repeat: repeat-x;
+        }
+        div#repeat-y{
+            background-image: url("background_small.jpg");
+            width: 200px;
+            height: 100px;
+            background-repeat: repeat-y;
+        }
+        div#repeat{
+            background-image: url("background_small.jpg");
+            width: 200px;
+            height: 200px;
+            background-repeat: repeat;
+        }
+    </style>
+    <div id="norepeat">
+        背景不重复<br/>
+        背景不重复<br/>
+        背景不重复<br/>
+        背景不重复<br/>
+    </div>
+    <div id="repeat-x">
+        背景水平重复
+    </div>
+    <div id="repeat-y">
+        背景垂直重复<br/>
+        背景垂直重复<br/>
+        背景垂直重复<br/>
+        背景垂直重复<br/>
+
+    </div>
+    <div id="repeat">
+        背景水平+垂直重复<br/>
+        背景水平+垂直重复<br/>
+        背景水平+垂直重复<br/>
+        背景水平+垂直重复<br/>
+        背景水平+垂直重复<br/>
+        背景水平+垂直重复<br/>
+        背景水平+垂直重复<br/>
+
+    </div>
+
+
+    <hr/>
+    <h5>示例4： 背景平铺: background-size;</h5>
+    <!--    backgorun-size 属性-->
+<!--    值： contain-->
+    <style>
+        div#contain{
+            background-image: url("background_small.jpg");
+            width: 200px;
+            height: 100px;
+            background-size: contain;
+        }
+    </style>
+    <div id="contain">背景平铺，通过拉伸实现，会有失真</div>
+
+
+
+</div>
+
+
+</body>
+</html>

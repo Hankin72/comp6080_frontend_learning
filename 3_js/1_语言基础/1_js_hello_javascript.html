@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="js1">
+    <h2>示例1： 通过javascript 向 文档中输出 文本</h2>
+    <h4>document 是 js 的内置对象， 代表浏览器的文档部分</h4>
+    <h4>document.write("xxxxx"); 向 文档 写入字符串</h4>
+    <hr/>
+    <hr/>
+
+</div>
+
+<div>
+    <h2>示例2：javascript 和 dom 结合的一个例子</h2>
+    <h4>onclick="..."表示点击button之后做的事情</h4>
+    <h4>document.getElementById根据 id 获取指定的元素</h4>
+    <h4>.style.display="none" 隐藏</h4>
+    <h4>.style.display = "block" 显示（准确的讲，以block 的形式显示）</h4>
+    （onclick，getElementById，style.display 这些内容，是HTML DOM 应该到才会用到的知识和概念）
+
+    <hr/>
+    <button onclick="document.getElementById('text').style.display='none'">隐藏文本</button>
+    <button onclick="document.getElementById('text').style.display='block'">显示文本</button>
+    <p id="text"> 这个是一段可以被 javascript 隐藏的 文本</p>
+
+    <hr/>
+    <hr/>
+</div>
+
+<div>
+    <h2>示例3: 语言基础，BOM 和 DOM </h2>
+    <h4>完整的 javascript 由语言基础， BOM 和 DOM 组成</h4>
+    <h4> 只有 通过 javascript 操作 DOM 对象 的时候，才能带来很好的使用效果，而本章节只会涉及到语言基础 和 BOM</h4>
+    <img src="images/11111.png">
+    <hr/>
+</div>
+
+
+<h3>以下是 document.write 写入文件的操作（示例1）</h3>
+
+</body>
+
+<script>
+    function p(s) {
+        document.write(s);
+        document.write("<br>")
+    }
+
+    var div1 = document.getElementById("js1")
+    p(div1)
+    p("hello javascript,fuck the algorithm ")
+
+    document.write("hello javascript,fuck the algorithm ")
+
+
+</script>
+</html>

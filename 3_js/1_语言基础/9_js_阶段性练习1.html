@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+练习，做一个简单的加法计算器<br/>
+<br/>
+
+
+<input type="text" id="num1" value="1">
+<br/>
+
+<input type="text" id="res" value="">
+
+<br/>
+
+<button value="jdhsakjhdkjash" onclick="get()">取值</button>
+<input type="button" value="取值" onclick="get()">
+<input type="button" value="reset">
+
+
+<hr/>
+
+<input type="number" id="number1" value="请输入数字"> +
+
+<input type="number" id="number2" value="请输入另一个数字"> = <input type="number" id="res1" value="">
+<button onclick="calc()">运算</button>
+
+</body>
+
+<script>
+    function get() {
+        // 如何从input中取值:
+        let value = document.getElementById("num1").value;
+        // 如何把数值放回input中
+        document.getElementById("res").value = "从num1中取到的值" + value;
+    }
+
+    function calc() {
+        const number1 = document.getElementById("number1").value;
+        const number2 = document.getElementById("number2").value;
+        num1 = parseFloat(number1);
+        num2 = parseFloat(number2);
+        const res = (n1, n2) => {
+            return n1 + n2;
+        }
+        document.getElementById("res1").value = res(num1, num2);
+    }
+
+</script>
+
+</html>

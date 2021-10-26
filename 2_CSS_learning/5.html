@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 布局： 相对定位 和 绝对定位</title>
+</head>
+<body>
+
+
+<div>
+    <h1 style="text-align: center">css 绝对定位</h1>
+    <h5 style="white-space: pre-wrap;">
+        绝对定位
+        属性：position
+        值：  absolute
+
+        通过指定left，top绝对定位一个元素
+    </h5>
+    <hr/>
+
+    <h4 style="text-align: center">示例1： 绝对定位</h4>
+    <hr/>
+<!--    设置了绝对定位的元素，相当于该元素被从原文挡中删除了-->
+<!--    所以"正常文字4"会紧接着出现在"正常文字2" 的后面，而不会留下空档-->
+    <style>
+        p.abs{
+            position: absolute;
+            left: 150px;
+            top: 50px;
+
+            size: B4;
+        }
+
+    </style>
+
+    <p >正常文字1</p>
+    <p >正常文字2</p>
+    <p class="abs" >绝对定位的文字3</p>
+    <p >正常文字4</p>
+    <p >正常文字5</p>
+
+
+    <hr/>
+
+
+    <h5 style="text-align: center">示例2： 绝对定位是基于最近的一个定位了的父容器</h5>
+<!--  对于 "绝对定位的文字" 这个p。其定位了的父容器 即 class = "absdiv" 的div
+    所以 对于 "绝对定位 的 文字" 这个 p 出现的 位置 是以 这个 div 为基础的  -->
+    <hr/>
+    <style>
+
+        div.absdiv{
+            position: absolute;
+            left: 150px;
+            top: 50px;
+
+            width: 215px;
+            border: 1px solid blue;
+        }
+        p.abs2{
+            position: absolute;
+            left: 100px;
+            top: 50px;
+        }
+    </style>
+
+    <div>
+        <p >正常文字a</p>
+        <p >正常文字b</p>
+        <p >正常文字c</p>
+        <p >正常文字d</p>
+        <p >正常文字e</p>
+        <p >正常文字f</p>
+        <p >正常文字g</p>
+    </div>
+    <div class="absdiv">
+        这是一个定位了的div
+        <p class="abs2">绝对定位的文字</p>
+    </div>
+    <hr/>
+
+    <h5>示例3： 如果没有定位了的父容器</h5>
+<!--    "绝对定位的文字"  这个p的父容器 div， 并没有定位， 所以它的 "最近的一个定位的父容器"" 即 body -->
+    <hr/>
+
+    <style>
+        p.abs3{
+            position: absolute;
+            left: 200px;
+            top: 200px;
+        }
+
+    </style>
+
+    <div>
+        <p >正常文字a</p>
+        <p >正常文字b</p>
+        <p >正常文字c</p>
+        <p >正常文字d</p>
+        <p >正常文字e</p>
+        <p >正常文字f</p>
+        <p >正常文字g</p>
+    </div>
+
+    <div>
+        这个div没有定位
+        <p class="abs3" >绝对定位的文字333333</p>
+    </div>
+    <hr/>
+    <h5 style="white-space: pre-wrap">示例4： z-index
+
+    通过，绝对定位可以把一个元素放在另一个元素上，这样的位置就重复了。
+
+        重复了，就存在一个谁掩盖谁的问题。
+        这个时候，就可以使用z-index 的属性，当 z-index的值越大，就表示放上面，z-inedx的值越小就放下面
+    </h5>
+    <hr/>
+
+    <style>
+        img#i1{
+            position: absolute;
+            left: 60px;
+            top: 1250px;
+            z-index: 1;
+        }
+        img#i2{
+            position: absolute;
+            left: 60px;
+            top: 1350px;
+            z-index: -1;
+        }
+    </style>
+
+
+    <div>
+        <p >正常文字a</p>
+        <p >正常文字b</p>
+        <p >正常文字c</p>
+        <p >正常文字d</p>
+        <p >正常文字e</p>
+        <p >正常文字f</p>
+        <p >正常文字g</p>
+    </div>
+    <img id="i1" src="https://how2j.cn/example.gif" />
+    <img id="i2" src="https://how2j.cn/example.gif" />
+</div>
+
+
+<br/>
+<hr/>
+<hr/>
+<div>
+    <h1 style="text-align: center">css 布局： 进行相对定位</h1>
+    <hr/>
+    <h4 style="text-align: center; white-space: pre-wrap">
+        相对属性:
+        属性： position
+        值： relative
+    </h4>
+
+
+    <hr/>
+    <h5>示例1： 相对定位</h5>
+<!--    与 绝对定位不同的是， 相对定位 不会把元素从原文档 删除掉。 而是在 原文档 的位置的基础上，移动一定的距离-->
+<!--    相对 本来 应该 在的 位置 进行 相对位置的 锁定-->
+    <hr/>
+    <style>
+        p.r{
+            position: relative;
+            left: 150px;
+            top: 30px;
+
+        }
+        p.abc{
+            border: 1px solid red;
+        }
+    </style>
+
+    <p class="abc">正常文字1</p>
+    <p class="abc">正常文字2</p>
+    <p class="r" >相对定位的文字3=================原来位置会占据一个坑（位置）========</p>
+    <p class="abc">正常文字4</p>
+    <p class="abc">正常文字5</p>
+    <hr/>
+
+
+    <h5>示例2： 相对定位: 但是 又不占用 位置 </h5>
+<!--    使用 相对 定位 可以很方面 的在 原来1的 位置 基础上， 进行 移动 ， 但是 又 会 占用原来 的 位置，后面 的 内容 就接不上来
+
+有时候，希望 一个1元素 在 原来 的 位置 上， 移动一下， 但是 又不占用原来的位置。，这个时候，就需要 绝对定位1和相对定位 的 组合 一起实现了
+
+1/ 首先， 对于 一个 div （d1）使用 相对定位  在 当前的位置上， 但是什么内容都不放
+2。 然后， 在这个div（d1） 里面 放一个 绝对定位 div（d2），因为 绝对定位 是以其 定位了 的 父容器 来 调整位置，
+所以 就会在这个相对定位 的 div（d1） 的基础上进行调整位置，但是看上取 是 在 原来 的基础上 调整了 位置。并且 还不占用 （坑）
+）
+-->
+    <hr/>
+    <style>
+        div.r{
+            position: relative;
+            left: 0px;
+            top: 0px;
+        }
+        div.a{
+            position: absolute;
+            left: 100px;
+            top: -50px;
+        }
+    </style>
+
+    <p>正常文字1</p>
+    <p>正常文字2</p>
+    <div class="r">
+        <div class="a">
+            相对定位 div + 绝对定位 div（绝对定位基于 最近的一个父容器）+ 相对 定位的 文字，。3（不占坑）====
+        </div>
+    </div>
+
+    <p>正常文字4</p>
+    <p>正常文字5</p>
+</div>
+
+
+</body>
+</html>

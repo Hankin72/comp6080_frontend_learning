@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <title>Practice 1</title>
+</head>
+
+<body>
+<h1>英雄联盟 （电子竞技类游戏）</h1>
+<!--p 是 paragraph的缩写，自带换行效果-->
+<!--在p的标签中，文本回自动换行，不在p标签中的，不会自动换行-->
+<!--b 和 strong都可以用来实现粗体的效果-->
+<!--b的是bold的缩写，仅仅表示该文本是粗体的，并不暗示这段文字的重要性-->
+<!--strong虽然也是粗体，但是i更多的强语义上的加重，提醒用户该文本的重要性。-->
+<!--在SEO搜索引擎优化）的时候推荐使用strong-->
+<p>
+    <strong>
+        《英雄联盟》
+    </strong>
+    （简称lol）是由美国<em>Riot Games</em>开发，中国大陆地区由腾讯游戏运营的网络游戏。</p>
+<!--实现斜体 <i> 和<em>都可以实现文本的斜体效果-->
+<!--区别：-->
+<!--i 是 italic 的缩写仅仅表示文本是斜体的，并不暗示这段文字的重要性-->
+<!--em 是 emphasized的缩写，虽然也是斜体，但是i更多的强调语义上的加重，提醒用户该文本的重要性。
+常常用于引入新的术语的时候使用-->
+
+<!--粗体和斜体可以一起使用<strong><i>同时有粗体和斜体</i></strong> -->
+<p>
+    <strong>
+        《英雄联盟》
+    </strong>
+    除了即时战略、团队作战外，还拥有一百多位特色各异的英雄、丰富的地图及玩法、自动匹配的战网平台，包括天赋树、召唤师系统、符文等元素。
+    <ins>[1]</ins>
+</p>
+
+<!--<s> 和<del>可以实现删除的效果，delete的缩写-->
+<!--<s>使用s标签可以实现删除，但是不建议使用，因为很多浏览器不支持 <s>标签-->
+
+<!--实现下划线的效果 <ins>-->
+<!--通常来讲，不要给普通的文本加下划线，因为用户回你误以为是一个超链接-->
+<!--<ins> 和<u>-underline的缩写，使用u标签也可以实现下划线效果，但是不建议使用-->
+<p>2016年1月，根据官方数据显示，LOL全球最高同时在线已突破<del>750</del> 900万，
+    全球日活跃高达2700万，全球月活跃已达6700万，注册用户亿计，LOL已经成为当今世界最具人气和影响力的网络游戏之一。
+    <ins>[2]</ins>
+<!--    <u>使用u也可以实现下划线的效果，但是不建议使用</u>-->
+</p>
+
+
+
+<!--预格式，有时候，需要在网页上显示代码，比如java代码-->
+<!--就需要用到 pre-->
+<br/>
+<hr/>
+<p>这里是没有用预格式的情况：</p>
+public class HelloWorld {
+
+public static void main(String[] args) {
+System.out.println("Hello World");
+}
+}
+
+<p>使用预格式的情况:</p>
+<pre>
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+}
+</pre>
+
+
+</body>
+</html>

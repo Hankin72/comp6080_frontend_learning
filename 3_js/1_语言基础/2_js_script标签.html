@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="hello.js"></script><br/>
+    <p>这是引入一个js文件产生的</p>
+    <br/>
+
+    <script>
+        document.write("这是 javascript, script 标签部分放在head中")
+    </script>
+    <hr/>
+
+</head>
+
+
+<body>
+<h2>javascript 代码 必须放在 script标签中<br/>
+    script标签可以放在html的任何地方，一般建议放在head标签里</h2>
+<hr/>
+<hr/>
+
+<div>
+    <h3>示例1： script 标签</h3>
+    <h4>javascript 都是放在script 标签中的，一旦加载，就会执行</h4>
+</div><hr/>
+
+<div>
+    <h3>示例2： javascript的顺行执行</h3>
+    <h5>如果 有多段 script代码， 会按照从上到下，顺序执行</h5>
+</div><hr/>
+
+<div>
+    <h3>   示例3： 使用外部js文件</h3>
+    <h4 style="white-space: pre-wrap">
+        和css一样， 当JavaScript代码特别多的时候，并且都写在html里的时候，会显得笔记繁杂，
+        难以维护。
+        这个时候，可以从业和css一样的手段， 把JavaScript代码剥离出来，单独放在一个文件中，然后，
+        在html中引入该文件即可；
+        比如，准备一个hell.js， 里面内容是
+            document.write("hello world")
+
+    </h4>
+</div>
+
+</body>
+
+<hr/>
+<script>
+    document.write("这是 javascript， script 标签部分放在body之后")
+</script><br/><br/>
+
+<script>
+    document.write("第一段 JavaScript")
+</script>
+<script>
+    document.write("第二段 JavaScript")
+</script>
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单元素</title>
+</head>
+<body>
+<!-- 1.表单元素：文本框  -->
+<!--<input type="text">即表示文本框-->
+<!--并且只能输入一行-->
+<!--如果要输入多行 -->
+<!--需要使用-&#45;&#45;文本域<textarea></textarea>-->
+
+<!--注意：<input>标签1很特别，一般不需要写成<input/>或者<input></input>这样的-->
+<!--并且<input>这样的写法也是可以满足标准的-->
+<div>
+    <input type="text">
+</div>
+<br/>
+<!--设置文本框的长度-->
+<div>
+    <input type="text" size="10">
+</div>
+<br/>
+<!--设置文本框的初始化的值-->
+<!--使用属性 value-->
+<div>
+    <input type="text" value="有初始值的文本框,输入的时候需要删除初始值" size="50">
+</div>
+<br/>
+
+<!--设置文本框的文字的背景，由背景文字的文本框-->
+<!--使用属性 placeholder-->
+<!--placeholder 是一个html5的属性，对于大多数的已经支持html5的浏览器来说，
+是可以看到效果的，但是对于老的不支持html5的浏览器，比如ie8，就看不到效果-->
+<div>
+    <input type="text" placeholder="请输入账号，例如：z5216214" size="40">
+</div>
+<br/>
+<hr/>
+
+<!--2. 表单元素： 密码框-->
+<!--<input type="password">即标水的是密码框-->
+
+<!--密码框-->
+<!--输入数据会自动显示为星号-->
+<div>
+    <input type="password" size="40">
+</div>
+<br/>
+
+<!--3. 表单元素： 表单form， <form> 以及get 和post的区别-->
+<!--<form>用于向服务器提交数据，比如账号密码-->
+
+<!--示例1。  表单-->
+<!--action="/study/login.jsp" 表示把账号和密码提交到login.jsp这个页面去-->
+<!--注: 这里把数据提交到服务端的login.jsp去了，鉴于当前学习的进度，就不对JSP的内容展开了。 -->
+<div>
+    <form action="https://how2j.con/study/login.jsp">
+        Accoount: <input type="text" name="name"><br/>
+        Password: <input type="password" name="password"><br/>
+        <input type="submit" value="Login">
+    </form>
+</div>
+<hr/>
+<hr/>
+
+<!--示例2: method = "get"-->
+<!--使用 method = "get" 提交数据 是常用的提交数据的方式-->
+<!--如果 form 元素没有提供method的属性，默认就是get方式提交数据-->
+<!--get方式的一个特点就是，可以在浏览器的地址栏看到提交的数据，即便是密码也可以看得到-->
+<form method="get" action="https://how2j.cn/study/login.jsp">
+    account: <input type="text" name="name"><br/>
+    password: <input type="password" name="password"><br/>
+    <input type="submit" value="login">
+</form>
+<br/>
+
+<!--示例3: method = "post"-->
+<!--使用method  = "post" 也可以提交数据-->
+<!--post 不会在地址栏中显示提交的数据-->
+<!--如果要提交二进制数据，比如说：上传文件，必须采样post 的方式-->
+<div>
+    <form method="post" action="https://how2j.cn/study/login.jsp">
+        账号：<input type="text" name="name"> <br/>
+        密码：<input type="password" name="password"> <br/>
+        <input type="submit" value="登陆">
+    </form>
+</div>
+
+<!--==================示例4:ge和post的区别=====================-->
+<!--get和post的区别：-->
+<!--1。get-->
+<!--        是form默认的提交方式-->
+<!--        如果通过一个超链接访问某一个地址，是get的方式-->
+<!--        如果在地址栏中直接书睿某个地址，是get的方式-->
+<!--        提交数据会在地址栏中显示出来-->
+<!--        不可以提交二进制数据，比如：上传文件-->
+<!--2。post-->
+<!--        必须在form上通过method  = "post"显示指定-->
+<!--        提交数据  不会 在地址栏中显示出来-->
+<!--        可以用于提交二进制数据，比如说：上传文件-->
+
+
+<hr/>
+<br/>
+<!-- 4。表单元素： 单选框-->
+<!--<input type="radio">表示单选框-->
+
+<!--4。1示例，单选框-->
+<!--两个单选，都可以同时被选中。为了达到，同一时间，只能选中其一的效果，需要使用分组，-->
+
+<div style="text-align: center">
+    <p>两个单选，都可以同时被选中(不可取消)。为了达到，同一时间，只能选中其一的效果，需要使用分组,</p>
+    单选1，<input type="radio">
+    单选2: <input type="radio">
+</div>
+
+<!--4。2示例，默认选中-->
+<div style="text-align: center">
+    <p>默认选中</p>
+    默认选中： <input type="radio" checked="checked">
+    <input type="radio">
+    <input type="radio">
+</div>
+
+<!--4。3示例，分组-->
+<!--分组即，多个单选框，都在一个分组里，同一时间，只能选中其中一个单选框，-->
+<!--设置name属性相同即可-->
+<div style="text-align: center">
+    <p>今晚做什么？</p>
+    学习html，<input type="radio" name="activity" value="学习aaaa"><br/>
+    东京热 <input type="radio" name="activity" checked="checke" value="tokyohot"><br/>
+    dota<input type="radio" name="activity" value="dota"><br/>
+    lol<input type="radio" name="activity" value="lol"><br/>
+</div>
+
+
+<hr/>
+<br/>
+<!-- 4。表单元素： 复选框-->
+<!--<input type="checkbox">即表示复选框-->
+<div>
+
+    <table border="1" width="500px">
+        <tr>
+            <td><p>今晚做什么。。。。。。</p></td>
+        </tr>
+        <tr>
+            <td>
+                learning html and pratice leetcode <input type="checkbox" value="learning"><br/>
+                tokyohot <input type="checkbox" checked="checked" name="activity" value="tokyohot"><br/>
+                call of duty mobile <input type="checkbox" value="codm"><br/>
+                nba2k <input type="checkbox" value="nbagame"><br/>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<br/>
+<hr/>
+<hr/>
+<br/>
+<!--5. 表单元素：下拉列表-->
+<!--<select>即下拉列表</select>-->
+<!--需要配合<option>来使用</option>-->
+
+<!--示例1：下拉列表-->
+<select>
+    <option>苍老师</option>
+    <option>sadasdasd</option>
+    <option>三上悠亚</option>
+</select>
+
+<!--示例2：设置高度-->
+<!--使用属性 size-->
+<select size="3">
+    <option>苍老师</option>
+    <option>sadasdasd</option>
+    <option>三上悠亚</option>
+    <option>苍老师</option>
+    <option>sadasdasd</option>
+    <option>三上悠亚</option>
+</select>
+
+<!--示例3:设置可以多选-->
+<!--使用ctrl 或者shift进行多选-->
+<select size="3" multiple="multiple">
+    <option>苍老师</option>
+    <option>sadasdasd</option>
+    <option>三上悠亚</option>
+    <option>苍老师</option>
+    <option>sadasdasd</option>
+    <option>三上悠亚</option>
+</select>
+<!--示例4:设置默认选中-->
+<!--对option元素设置selected = "selected"-->
+<select size="4" multiple="multiple">
+    <option>苍老师</option>
+    <option selected="selected">高树玛利亚</option>
+    <option selected="selected">要没电了</option>
+</select>
+
+
+<br/>
+<hr/>
+<hr/>
+<br/>
+<!--.6 表单元素：文本域textarea-->
+<!--<textarea>即文本域</textarea>-->
+<!--与文本框不同的是，文本域可以i多行，并且可以有滚动条-->
+<!--示例 1 : 文本域-->
+<div>
+    <textarea cols="40">def
+    asd
+    dasd
+    </textarea>
+</div>
+<!--示例 2 : 设置宽度和行数-->
+<!--使用属性cols和rows-->
+<div>
+    <textarea cols="30" rows="8" placeholder="请输入一些东西，以进行测试用">
+
+    </textarea>
+</div>
+
+<br/>
+<hr/>
+<hr/>
+<br/>
+<!--7. 表单元素：普通按钮-->
+<!--<input type="button">即普通按钮-->
+<!--示例1： 普通按钮-->
+<div>
+    <input type="button" value="一个按钮">
+</div>
+<!--示例2： 普通按钮不具备提交form的效果-->
+<div>
+    普通按钮不能提交<br/>
+    <form action="/study/login.jsp" method="post">
+        account  : <input type="text" name="name"><br/>
+        password: <input type="password" name="password"><br/>
+
+        <input type="button" value="login">
+    </form>
+
+</div>
+
+
+<br/>
+<hr/>
+<hr/>
+<br/>
+<!--8. 表单元素：提交按钮================-->
+<!--<input type="submit">即为提交按钮-->
+<!--用于提交form，把数据提交给服务器-->
+<!--示例 1 : 提交按钮-->
+<div>
+    <form action="https://how2j.cn/study/login.jsp" method="get">
+        account: <input type="text" name="name"><br/>
+        password: <input type="password" name="password"><br/>
+       <button>
+           <input type="submit">
+       </button>
+        <input type="submit" value="loginaaaaa">
+
+    </form>
+</div>
+
+<br/>
+<hr/>
+<hr/>
+<br/>
+<!--9. 表单元素：重置按钮================-->
+<!--<input type="reset">重置按钮，可以把输入框的改动复原-->
+<!--示例 1 : 重置按钮-->
+<div>
+    <p>重置按钮测试，here</p>
+    <form action="https://how2j.cn/study/login.jsp" method="post">
+        account: <input type="text" name="name"><br/>
+        password: <input type="password" name="password"><br/>
+        <input type="submit" value="submit">
+        <input type="reset" value="reset">
+    </form>
+</div>
+
+<br/>
+<hr/>
+<hr/>
+<br/>
+<!--10. 表单元素：使用图片进行提交================-->
+<!--<input type="image">即使用图像作为按钮进行提交form的操作？-->
+
+<!--示例 1 : 使用图像进行提交-->
+<!--设置 src的属性-->
+<div style="text-align: center">
+    <form action="https://how2j.cn/study/login.jsp" method="post">
+        account: <input type="text" name="name"><br/>
+        password: <input type="password" name="password"><br/>
+        <input type="image" width="50px" height="50px" src="unsw.png">
+    </form>
+
+</div>
+
+<br/>
+<hr/>
+<hr/>
+<br/>
+<!--11. 表单元素：按钮标签================-->
+<!--<button></button>即按钮标签-->
+<!--与<input type="button">不同的是，<button>标签功能更为丰富</button>-->
+
+<!--按钮标签里的内容可以是文字也可以是图像-->
+<!--如果button 的type="submit"，那么它就具备提交form的功能-->
+
+<!--示例 1 : button里是文字-->
+<div style="text-align: center">
+    <button>按钮</button>
+</div>
+<!--示例 2 : button里是图片-->
+<div>
+    <button><img src="https://how2j.cn/example.gif"></button>
+</div>
+<!--示例 2 : button用来提交数据-->
+<!--设置type = "submit"-->
+<!--ie下button的type默认值为button不具备提交的功能-->
+<!--其他浏览器type的默认值是submit-->
+<div style="text-align: center">
+    <form action="https://how2j.cn/study/login.jsp" method="post">
+        账号：<input type="text" name="name"> <br/>
+        密码：<input type="password" name="password" > <br/>
+        <button type="submit" name="next"><img src="https://how2j.cn/example.gif"></button>
+    </form>
+</div>
+
+</body>
+</html>

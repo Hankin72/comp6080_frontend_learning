@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+    <h3> step1:使用 alert进行调试</h3>
+    <p style="white-space: pre-wrap;">
+         使用alert(1)进行调试，这是最开始的时候非常常用的一种手法来进行JavaScript代码调试，
+        即使今天，也是比较有效的一种方式。
+        使用alert的思路：
+    </p>
+    alert(1)<br/>
+    会弹出一个对话框，里面的内容是1。 换句话说，如果弹出了1。 这个位置以上的代码。都是可以运行的。<br/>
+    不停的把alert(1)向下移动， 当移动到某一行的时候，就不再弹出，。那么就证明哪一行运行有问题。<br/>
+    这样就把问题的范围缩小，就很容易通过肉眼观察法来定位真正问题的位置。，<br/>
+    <hr/>
+
+    <script>
+        x=10;
+        // alert(1)
+        document.write("没有用var 声明的变量x的值："+x);
+        // alert(2)
+    </script>
+</div><br/><br/><hr/><hr/>
+
+
+<div>
+    <h3>step2： 使用浏览器 firefox或者chrome 的console， F12， 进行调试 </h3>
+
+    <h4>console是控制台的意思，用于输出一些错误和调试信息。
+    </h4>
+
+    <script>
+        x=100;
+        document.write(" 这是一段故意写错的write 方法的JavaScript 代码:"+x);
+
+    </script>
+</div><br/><br/><hr/><hr/>
+
+<div>
+    <h3>step3: console.log()</h3>
+
+    <p style="white-space: pre-wrap;">
+
+        类似于 alert进行调试， firebug 又一个日志输出工具 console.log（）。
+        不同于 alert 的缺点，（弹出屏幕，阻挡所以其他操作，）
+        console.log()只会把信息输出到console里，而不会影响用户的使用。
+        用户甚至意识不到console.log()的存在。
+    </p>
+
+    <script>
+        x=1000;
+        console.log("x="+x);
+        document.write("没有用var 声明的变量x的值："+x);
+        console.log("end");
+    </script>
+</div>
+
+
+</body>
+</html>

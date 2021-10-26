@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body, html {
+        width: 100%;
+        height: 100%;
+        font-family: "Segoe UI", "Arial", sans-serif;
+    }
+
+    span {
+        display: inline-block;
+        border: 1px solid black;
+        width: 120px;
+        height: 25px;
+
+    }
+
+    .js2 {
+        border: blue 2px solid;
+        padding: 20px;
+    }
+
+    .row {
+        margin-left: 350px;
+        margin-bottom: 2px;
+    }
+
+    .button {
+        margin-top: 20px;
+        margin-left: 200px;
+        width: 100px;
+    }
+
+    #res {
+        margin-top: 15px;
+        width: 560px;
+    }
+
+    input {
+        height: 27px;
+    }
+
+</style>
+
+<body>
+
+<div class="js2">
+    <div class="row">
+        <span>地名：</span>
+        <input type="text" id="address">
+        <span>公司类型：</span>
+        <input type="text" id="company-type">
+    </div>
+
+    <div class="row">
+        <span>公司名称：</span>
+        <input type="text" id="company-name">
+        <span>老板姓名：</span>
+        <input type="text" id="boss-name">
+    </div>
+
+    <div class="row">
+        <span>money：</span>
+        <input type="text" id="money">
+        <span>产品：</span>
+        <input type="text" id="product">
+
+    </div>
+
+    <div class="row">
+        <span>价格计量单位：</span>
+        <input type="text" id="price-unit">
+    </div>
+
+
+    <div class="row">
+        <button onclick="generate()" class="button">生成</button>
+        <br/>
+        <textarea id="res" rows="8"></textarea>
+    </div>
+</div>
+<script>
+    function get_input_value(id) {
+        const value = document.getElementById(id).value;
+        return value;
+    }
+
+
+    function generate() {
+        let address = get_input_value("address");
+        let company_type = get_input_value("company-type");
+        let company_name = get_input_value("company-name");
+        let boss_name = get_input_value("boss-name");
+        let money = get_input_value("money");
+        let product = get_input_value("product");
+        let price_unit = get_input_value("price-unit");
+
+        const res = `${address}最大${company_type} ${company_name}倒闭了，王八蛋老板 ${boss_name}吃喝嫖赌，欠下${money}个亿，带着他的小姨子跑了，我们没有办法， 拿着${product}抵工资！ 原价都是一${price_unit}多、两${price_unit}多，三${price_unit}多的${product},现在全部只卖二十块，统统只要二十块！ ${boss_name}王八蛋，你不是人！ 我们辛辛苦苦给你干了大半年，你不发工资，你还我血汗钱，还我血汗钱`
+        document.getElementById("res").value = res;
+    }
+</script>
+
+</body>
+</html>

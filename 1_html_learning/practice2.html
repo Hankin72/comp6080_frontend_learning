@@ -1,0 +1,397 @@
+<!--本次练习将实现图像，表格的效果-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <title>Practice2</title>
+</head>
+
+
+<!--<a>标签即用来显示超链接-->
+<!--完整元素是-->
+<!--<a href="跳转的页面地址">超链接显示文本</>a>-->
+<body>
+
+<!--添加超链接-->
+<div style="text-align: center">
+    <a href="http://www.google.com" target="_blank">google search</a>
+</div>
+<!--在新的页面打开链接-->
+<div style="text-align: center">
+    <a href="http://www.12306.com" target="_blank">www.12306.cn</a>
+</div>
+
+
+<!--超链接上提示文字-->
+<div style="text-align: center">
+    <a href="1.html" target="_blank" title="跳转到pratice1" >practice_1</a>
+
+</div>
+<!--使用图片作为超链接-->
+<div style="text-align: left">
+    <a href="http://www.unsw.edu.au" target="_blank" title="跳转到unsw官网"><img width="60" height="60" src="unsw.png"></a>
+</div>
+
+<div align="left">
+    <img src="https://how2j.cn/example.gif"/>
+</div>
+<div align="center">
+    <img src="https://how2j.cn/example_not_exist.gif"/>
+    <br/>
+    <img  src="https://how2j.cn/example.gif" alt="这是一张图片"/>
+    <br/>
+    <img src="https://how2j.cn/example_not_exist.gif" alt="这个是一个图片"/>
+
+</div>
+<div align="right">
+    <img src="https://how2j.cn/example.gif"/>
+
+</div>
+
+<hr/>
+<hr/>
+<!--=========================================================================-->
+<!--<table>标签用于显示一个表格-->
+<!--<tr>表示行-->
+<!--<td>表示列又叫一个单元格-->
+<!--tr (table row 表示行，所有3个tr元素)-->
+<!--td（table data ）表示列，每一行，有两列，每一个tr元素中，有两个td的元素-->
+
+<!--1.  举例：  3 行 2 列的表格-->
+<div>
+    <p>1  . 举例：  3 行 2 列的表格: </p>
+    <table>
+        <tr>
+            <td>Time</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>13:00</td>
+            <td>I love you</td>
+        </tr>
+        <tr>
+            <td>14:00</td>
+            <td>always have always will</td>
+        </tr>
+    </table>
+</div>
+
+<!--2. 带边框的表格-->
+<!--需要设置table的属性border-->
+<hr/>
+<div>
+    <p>2. 带边框的表格:  需要设置table的属性border</p>
+    <table border="1">
+        <tr>
+            <td>Time</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>13:00</td>
+            <td>I love you</td>
+        </tr>
+        <tr>
+            <td>14:00</td>
+            <td>always have always will</td>
+        </tr>
+    </table>
+</div>
+
+
+<!--3. 设置table的宽度：    -->
+<!--            设置table的属性width-->
+<!--            px即像素的意思-->
+<!--            比如你的分辨率为1024*768，则你的屏幕横向就有1024个像素-->
+<hr/>
+<div >
+    <p>3. 设置table的宽度：</p>
+    <table border="1" width="500px" align="center">
+        <tr>
+            <td>Time</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>13:00</td>
+            <td>I love you</td>
+        </tr>
+        <tr>
+            <td>14:00</td>
+            <td>always have always will</td>
+        </tr>
+    </table>
+</div>
+
+<!--4. 单元格宽度 的绝对值-->
+<!--                设置td的属性width-->
+
+<!--                   在以上例子中，1单元格设置了宽度，那么3，和a单元格，自动继承该宽度-->
+<!--                    2单元格的宽度由table大的宽度和1的单元格的宽度决定-->
+<hr/>
+<div style="text-align: center">
+    <p>4. 设置单元格宽度 的绝对值: </p>
+    <table border="1" width=400px" align="center">
+        <tr>
+            <td width="50%">Time-</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>13:00</td>
+            <td>I love you</td>
+        </tr>
+        <tr>
+            <td>14:00</td>
+            <td>always have always will</td>
+        </tr>
+    </table>
+</div>
+
+
+<!--5. 单元格宽度u的相对值, 相对table的宽度的百分比的值，看起来比较实用且常用-->
+<!--设置 td 的属性 width 的百分数-->
+<dv>
+    <p>5. 单元格宽度u的相对值:   设置 td 的属性 width 的百分数(80%) </p>
+    <table border="1" width=400px" align="center">
+        <tr>
+            <td width="80%">Time-</td>
+            <td>data</td>
+        </tr>
+        <tr>
+            <td>13:00</td>
+            <td>I love you</td>
+        </tr>
+        <tr>
+            <td>14:00</td>
+            <td>always have always will</td>
+        </tr>
+    </table>
+</dv>
+
+
+<!--  6  。 单元格td水平对齐-->
+<!--                     设置td的属性align-->
+<di>
+    <p>6  。 单元格td水平对齐：  设置td的属性align </p>
+    <table border="1" width=400px" align="center">
+        <tr>
+            <td width="40%" align="center">Time-</td>
+            <td align="right">data</td>
+        </tr>
+        <tr>
+            <td >13:00</td>
+            <td>I love you</td>
+        </tr>
+        <tr>
+            <td>14:00</td>
+            <td>always have always will</td>
+        </tr>
+    </table>
+</di>
+
+<!-- 7. 单元格垂直对齐-->
+<!--                设置td的属性valign-->
+<di>
+    <p>7. 单元格垂直对齐：  设置td的属性valignn </p>
+    <table border="1" width=400px" >
+        <tr>
+            <td width="50%"  valign="top" >Time-</td>
+            <td >
+                data <br/>
+                data<br/>
+                data<br/>
+
+            </td>
+
+        </tr>
+        <tr>
+            <td valign="mid" >13:00</td>
+            <td>I love you<br/>
+                aaaaa<br/>
+                bbbb<br/>
+            </td>
+        </tr>
+        <tr>
+            <td valign="bottom">14:00</td>
+            <td>
+                i love you<br/>
+                always have<br/>
+                always will<br/>
+            </td>
+        </tr>
+    </table>
+</di>
+
+<hr/>
+<!--8 .  横跨两列，水平合并-->
+<!--                设置；td属性的colspan-->
+<div style="text-align: center">
+    <br/>
+    <table border="1" width="400px"  align="center">
+        <tr>
+            <td colspan="2">合并单元格1，2，可以作为表格title</td>
+
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>a</td>
+            <td>b</td>
+        </tr>
+    </table>
+</div>
+
+<hr/>
+<!--        9. 横跨两列，垂直合并 -->
+<!--                    设置td的属性 rowspan-->
+<div>
+    <table width="500px" border="5" align="center">
+        <tr>
+            <td rowspan="2">垂直合并1，3</td>
+            <td>data-2</td>
+
+        </tr>
+        <tr>
+            <td>data 4</td>
+        </tr>
+        <tr>
+            <td>data a</td>
+            <td> data b</td>
+        </tr>
+
+    </table>
+</div>
+
+
+<hr/>
+<!--10. 设置 表格背景色-->
+<!-- 蛇追tr 或者td的属性bgcolor-->
+<table border="1" width="200px" align="right">
+    <tr bgcolor="gray">
+        <td width="50%">1</td>
+        <td>1</td>
+    </tr>
+
+    <tr>
+        <td>3</td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <td bgcolor="#faebd7">a</td>
+        <td bgcolor="pink">b</td>
+    </tr>
+</table>
+</body>
+
+<br/>
+<hr/>
+<hr/>
+<hr/>
+<!--html 列表，无序列表标签<UL>和有序列表的标签<ol>-->
+<!--    1.      列表分为无序列表和有序列表-->
+<!-- 分别 用<ul> 和<ol>  标签表示-->
+<!--1。1 无序列表-->
+<ul>
+    <li>DOTA</li>
+    <li>LOL</li>
+</ul>
+
+<!--1.2  有序列表 <ol>-->
+<ol>
+    <li>asdasdas</li>
+    <li>sadasdasdasdas</li>
+    <li>asadasd</li>
+</ol>
+
+
+<br/>
+<hr/>
+<hr/>
+<hr/>
+<!--    基本元素：块标签<div> 和 <span> 以及 他们的区别-->
+<!--<div>-->
+<!--<span>-->
+<!--这种标签都是布局用的-->
+<!--这种标签本身没有任何显示效果-->
+<!--通常是用来结合css进行页面布局的-->
+
+<!--显示效果对比: 以上没有什么效果上的区别-->
+这没有任何标签
+<div>这是一个div</div>
+<span>这是一个span</span>
+
+<hr/>
+<!--div 布局-->
+<img style="margin-left: 50px" src="https://how2j.cn/example.gif"/>
+<br/>
+<img style="margin-left: 50px" src="https://how2j.cn/example.gif"/>
+
+<div style="margin-left: 100px">
+    <img src="https://how2j.cn/example.gif"/>
+    <br>
+    <img src="https://how2j.cn/example.gif"/>
+</div>
+
+
+<!--div和span的区别-->
+<!--div是块元素，即自动换行-->
+<!--常见的块元素还有h1，table，p -->
+<!--span 是内联元素，即不会换行-->
+<!--                常见的内联元素还有img，a，strong-->
+
+<div>asadas
+sadasd
+dasdas: this a test message about div</div>
+<div>asadas
+    sadasd
+    dasdas: this a test message about div</div>
+
+<!--span不会换行-->
+<span>asadas
+    sadasd
+    dasdas: this a test message about span</span>
+<span>asadas
+    sadasd
+    dasdas: this a test message about span</span>
+
+
+
+<hr/>
+<hr/>
+<!-- 基本元素： 字体-->
+<!-- 使用 <font> 标签来表示字体-->
+
+<!--1。字体元素-->
+<!--font常用的属性有color和size，分别表示颜色和大小-->
+
+<font color="green">绿色默认大小的字体</font>
+<br/>
+<font color="blue" size="+2">蓝色大2号字体
+
+</font>
+<br/>
+<font color="red" size="-2">红色小2号字体
+</font>
+
+<!-- 颜色的表示方法-->
+<!--在html中，颜色通常使用两种方式来表示-->
+<!--    1。颜色名： 比如red，blue-->
+<!--    2。颜色对应的16进制， 比如#ff0000 就表示红色-->
+
+<div style="text-align: center;">
+    <font color="red">用red表示红色字体</font>
+    <br/>
+    <font color="#ff0000">用#ff
+        0000来表示红色字体</font>
+</div>
+
+
+
+<!-- 基本元素： 内联框架标签-->
+<!-- <iframe>即内联框架-->
+<!--通过内联框架，可以实现在网页中"插入"网页的效果-->
+<iframe src="http://how2j.cn/" width="600px" height="600px"></iframe>
+
+<iframe src="2.html" width="1000px" height="600px"></iframe>
+</html>

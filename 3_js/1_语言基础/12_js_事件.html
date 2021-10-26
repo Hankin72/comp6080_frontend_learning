@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>事件</h1>
+事件是javascript 允许和 html 与用户交互的行为。 用户任何对网页的操作，都会产生一个事件。
+事件有很多种，比如鼠标移动，鼠标点击。键盘点击等等。
+
+本例演示当一个按钮被点击的时候，弹出一个对话框。
+<hr>
+<div style="border: red 2px solid; width: 300px; height: 30px; text-align: center">示例： 鼠标点击事件</div>
+<hr/>
+
+<br/>
+<br/>
+<button onclick="sayHello()">
+    点击一下
+</button>
+
+
+</body>
+<script>
+    const sayHello = () => {
+        alert("hello js.");
+
+    }
+    const check = (a, b) => a + b;
+</script>
+</html>

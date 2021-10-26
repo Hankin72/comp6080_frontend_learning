@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>html dom</title>
+</head>
+<body>
+<h1>HTML DOM</h1>
+<hr/>
+<h4>DOM 是 document object model （文档对象模型）的 缩写，</h4>
+
+<h4>DOM 是 把 html 里面的各种数据 当作一个对象进行操作的一种思路</h4>
+
+<h4>比如，一个超链接，作为一个dom 对象， 就可以使其隐藏，修改其href 指向的地址</h4>
+
+<div>
+    <hr/>
+
+    <h3 style="color: darkred">示例1： 节点的概念</h3>
+    <h5 style="white-space: pre-wrap">
+        DOM 把所有的html 都转换为节点
+            整个文档 是一个 节点
+            元素 是节点
+            元素的属性 是节点
+            元素内容 是节点
+            注释 也是节点
+    </h5>
+</div>
+
+<div id="d1">hello HTML DOM</div>
+
+</body>
+
+<script>
+    function p(s){
+        document.write(s);
+        document.write("<br>")
+    }
+    var div1 = document.getElementById("d1");
+    p("文档节点"+document);
+    p("元素"+div1);
+    p("属性节点"+div1.attributes[0]);
+    p("内容节点"+div1.childNodes[0]);
+
+</script>
+</html>

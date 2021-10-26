@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css 文件 分离,练习4</title>
+</head>
+<body>
+
+<!--<link rel="stylesheet" type="text/css" href="https://how2j.cn/study/style.css" />-->
+<div>
+
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <p class="p1">红色</p>
+    <span class="span1">蓝色</span>
+</div>
+
+
+<div>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <h1 class="f1">css 样式的优先级</h1>
+
+<!--    如果 style.css 中，<style>标签中，style属性 上 有冲突的样式， 那么谁的优先级更高呢？-->
+    <h5 class="f5">
+        示例1： style 标签 与 外部 文件 style.css 样式重复
+    </h5>
+
+
+    <style>
+        p.p1{
+            color: green;
+        }
+    </style>
+    <p class="p1"> p1 颜色是绿色的(style.css中p1为红色)， <br/>
+        优先使用靠的最后出现的<br/>，
+        而且会覆盖掉前面的<br/>，
+        修改模版可能会用的</p>
+    <hr/>
+    <hr/>
+
+    <h5 class="f5">
+        示例 2 : style标签上的与style属性冲突
+        style标签上的与style属性冲突
+        优先使用style的属性，
+    </h5>
+
+    <style>
+        span.p1{
+            color:blue;
+        }
+    </style>
+
+    <span class="p1" style="color:red;">sapn.p1 颜色是红色，优先使用style属性(红色)</span>
+
+    <hr/>
+    <hr/>
+
+    <h5 class="f5">
+        示例 3 : 如果样式上增加了 !important, 则优先级最高，甚至高过 style 属性
+    </h5>
+
+    <style>
+        .abc{
+            font-weight: bold;
+            color: blue !important;
+        }
+
+    </style>
+
+    <p class="abc" style="color:red">p1 颜色是绿色，优先使用!important样式,优先级style标签最高！</p>
+
+
+
+
+</div>
+
+</body>
+</html>

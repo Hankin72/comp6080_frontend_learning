@@ -1,0 +1,23 @@
+/*如果把所有的css都写在html文件里面，一旦样式比较多的时候，就会显得不易维护*/
+
+/*这个时候就会选择把所有的css内容，放在一个独立文件里*/
+
+/*然后在html中引用该文件*/
+
+/*通常这个文件会被命名为style.css*/
+p.p1{
+    color: red;
+    text-align: center;
+    border: 2px double lightblue;
+}
+span.span1{
+    color: blue;
+
+}
+h1.f1{
+    color: black;
+    text-align: center;
+    border: red 2px solid;
+    padding: 10px;
+}
+h5.f5{white-space: pre-wrap}

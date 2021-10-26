@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="row">
+    示例1：基本运算符
+    <br/>
+    <script>
+        function p(s){
+            document.write(s);
+            document.write("<br>");
+        }
+
+        p(`1+2 = ${1+2}`);
+        p(`1+2 = ${1+2}`);
+        p(`1+2 = ${1+2}`);
+        p(`5-3 = ${5-3}`);
+        p(`1*2 = ${1*2}`);
+        p(`9/3 = ${9/3}`);
+        p("10%3="+ (10%3));
+    </script>
+
+</div> <hr/>
+
+
+
+<div class="row">
+    示例2：自增，自减运算符
+    <br/>
+    <div style="white-space: pre-wrap">
+        自增++在原来的基础上 ，增加 1.
+        需要注意的是
+        如果 ++放在 前面 ，就是 先运算，后取值 。
+        如果 ++放在 后面 ，就是 先取值，后运算。
+        自减 -- 是一个道理。
+
+    </div>
+
+    <script>
+
+        var a= 5;
+        document.write('a++ 是先取值，再运算，所以打印出来是：'+a++); //先取值 ，即5
+        document.write("<br>");
+        var b = 5;
+        document.write('++b 是先运算，再取值，所以打印出来是：'+ ++b); //先运算，再取值，即6
+
+    </script>
+
+</div><hr/>
+
+<div class="row">
+    示例3： 赋值运算符<br/>
+
+    <div style="white-space: pre-wrap">
+        =，+=，-=，*=，/=，%=
+        x=5 是 最基本的赋值运算符，即把右边的值，赋给左边的变量x。
+        x+=y, 表示 x=x+y。
+        其他都是一个道理。
+    </div>
+    <script>
+
+    </script>
+
+
+
+
+
+</div>
+
+
+</body>
+
+
+</html>

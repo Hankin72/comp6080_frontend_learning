@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<br/><br/><hr/><hr/>
+<!---->
+<!---->
+<!---->
+
+<h1 style="text-align: center">7。 css 布局：  块之间的空格</h1><hr/>
+<h5 style="white-space: pre-wrap">
+    步骤 1 : 块之间有空格
+    步骤 2 : 解决办法
+</h5>
+
+<div>
+
+    <h4>
+        步骤 1 : 块之间有空格
+    </h4>
+
+
+    <style>
+        span{
+            border-bottom: 2px solid red;
+        }
+    </style>
+    <div class="continue">
+        <span>有换行的span</span><span>有换行的span</span><span>有换行的span</span>
+    </div>
+    <div class="nocontinue_">
+        <span>有换行的span</span>
+        <span>有换行的span</span>
+        <span>有换行的span</span>
+    </div>
+
+    <hr/>
+
+    <h4>
+        步骤 2: 解决办法
+    </h4>
+<!-- 使用 float 来解决
+float 使用 完毕之后，记得 在下面 加上 <div style="clear both"><div>
+用于 使得后续 的元素， 不会 和这些 span 重复 在一起-->
+
+    <style>
+        div.nocontinue{
+            border-bottom: 2px green solid;
+            float: left;
+
+        }
+    </style>
+    <div class="nocontinue">
+        <span>有换行的span</span>
+        <span>有换行的span</span>
+        <span>有换行的span</span>
+    </div>
+
+    <div style="clear: both"></div>
+
+    <div> 后续内容
+
+        <span>有换行的span</span>
+        <span>有换行的span</span>
+        <span>有换行的span</span></div>
+
+</div>
+
+</body>
+</html>

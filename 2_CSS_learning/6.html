@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css 布局： 浮动 FLOAT/ 显示方式/ 水平居中/ 左侧固定/ 垂直居中/ 左右固定， </title>
+</head>
+<body>
+
+
+<h1 style="text-align: center">1。 css 布局： 浮动</h1>
+<hr/>
+<h4 style="text-align: left; white-space: pre-wrap">
+    浮动的 框 可以 向左 或者 向右移动，
+    直到它 的 外边缘 碰到 包含框 或者
+    另一个 浮动 框 的 边框 为止
+
+    属性： float
+    值： left。right
+</h4>
+<hr>
+<div>
+    <h5>示例1： 文字 向右 浮动</h5>
+    <!--文字可以向右浮动
+    浮动之后， 原来的 "坑" 就让出来了
+    并且 是 在原来 的高度 的基础上， 向右浮动
+    -->
+    <style>
+        div.right_f{
+            float: right;
+        }
+    </style>
+    <div>正常文字1</div>
+    <div >正常文字2</div>
+    <div class="right_f">浮动的文字</div>
+    <div >正常文字4</div>
+    <div >正常文字5</div>
+   <hr/>
+
+    <h5>示例2： 文字 向左 浮动</h5>
+    <!--文字可以向左浮动
+    首先，向左浮动之后， 会把"坑" 让出来， 这个时候
+    "正常文字4" 就会过来 占据 这个 位置， 但是发现 "向左 浮动 的文字并没有走，"，
+    结果， 就只好排在 它 的后面
+    -->
+    <style>
+        div.left-f{
+            float:left;
+        }
+
+    </style>
+
+    <div >正常文字1</div>
+    <div >正常文字2</div>
+    <div class="left-f">浮动的文字=-=-=-=-=-=-=///<br/>
+    </div>
+    <div >正常文字4</div>
+    <div >正常文字5</div>
+
+    <hr/>
+
+    <h5>示例3： 文字 可以环绕 图片</h5>
+<!--     z-index 可以设置 覆盖程度-->
+    <!--1。 当图片 不浮动 的时候， 文字就会换行出现在其下面（换行下面）
+    2。当图片 浮动的时候， 文字 就会 环绕图片
+
+    3。 和 步骤2一样， 当 图片 浮动 的时候， 就会 让出 这个 "坑"，
+    这个时候文字就 试图 去填补 这个 "坑"，
+    结果发现， 尼玛， 图片没有走， 那就只好围绕图片摆放
+    -->
+    <style>
+        div.cls3{
+            width: 320px;
+        }
+        img.float{
+            float: left;
+            /*z-index: -1;*/
+        }
+    </style>
+
+    <div class="cls3" >
+        <img src="https://how2j.cn/example.gif"/>
+        <p>  当图片不浮动时，文字就会换行出现在下面
+            当图片不浮动时，文字就会换行出现在下面
+            当图片不浮动时，文字就会换行出现在下面
+            当图片不浮动时，文字就会换行出现在下面
+            当图片不浮动时，文字就会换行出现在下面
+            当图片不浮动时，文字就会换行出现在下面
+        </p>
+    </div>
+
+    <div class="cls3">
+        <img  class="float" src="https://how2j.cn/example.gif"/>
+
+        <p> 当图片浮动时，文字围绕着图片
+            当图片浮动时，文字围绕着图片
+            当图片浮动时，文字围绕着图片
+            当图片浮动时，文字围绕着图片
+            当图片浮动时，文字围绕着图片
+        </p>
+    </div>
+    <hr/>
+
+
+    <h5>示例4： 文字不想 围绕 着 图片</h5>
+<!--    不允许 出现 浮动 元素
+
+属性： clear
+值： left right both none
+如果 p 左边 出现了 浮动 元素，
+如此例子：则设置 clear：left 即可以 达到 不允许 浮动 元素 出现 左边 的 效果
+-->
+
+    <style>
+        div.ab{
+            width: 320px;
+        }
+        img.f{
+            float: left;
+        }
+        p.clearp{
+            clear: left;
+        }
+
+    </style>
+    <div class="ab">
+        <img  class="f" src="https://how2j.cn/example.gif"/>
+
+        <p>  当图片浮动时，文字围绕着图片
+            当图片浮动时，文字围绕着图片
+            当图片浮动时，文字围绕着图片
+            当图片浮动时，文字围绕着图片
+            当图片浮动时，文字围绕着图片
+        </p>
+    </div>
+
+    <div class="ab">
+        <img  class="f" src="https://how2j.cn/example.gif"/>
+
+        <p class="clearp">  当图片浮动时，文字却不想围绕图片
+            当图片浮动时，文字却不想围绕图片
+            当图片浮动时，文字却不想围绕图片
+            当图片浮动时，文字却不想围绕图片
+
+        </p>
+    </div>
+
+
+    <hr/>
+    <h5>示例5 ： 水平排列 div</h5>
+<!--     默认 div 排列 是 会换行的
+            如果 使用 float 就可以 达到 水平 排列 的效果，
+            通常会用在 菜单 ， 导航栏的地方
+            如果 超过 了 父容器， 还是会自动 换行
+            -->
+
+    <hr/>
+    <style>
+        div.floatingdiv{width: 200px}
+        div.floatingdiv div{
+            float: left;
+        }
+    
+    </style>
+    <h6 style="text-align: center">默认的div排列是会换行的</h6>
+    <div>
+        菜单1
+    </div>
+    <div>
+        菜单2
+    </div>
+    <div>
+        菜单3
+    </div>
+
+    <h6 style="text-align: center;white-space: pre-wrap;">
+        如果使用float就可以达到水平排列的效果，通常会用在菜单，导航栏等地方
+
+        如果超出了父容器，还会有自动换行的效果</h6>
+    <div class="floatingdiv">
+        <div>
+            菜单1
+        </div>
+        <div>
+            菜单2
+        </div>
+        <div>
+            菜单3
+        </div>
+        <div>
+            菜单4
+        </div>
+        <div>
+            菜单5
+        </div>
+        <div>
+            菜单6
+        </div>
+    </div>
+
+    <br/><br/><hr/><hr/>
+
+</div>
+
+
+<h1 style="text-align: center">2。 css 布局： 显示方式</h1><hr/>
+<h5 style="text-align: center; white-space: pre-wrap">
+    元素的的 display 显示 方式 有 多种：
+    隐藏 display:none，
+    块级 display: block，
+    内联 display inline，
+    内联-块级 display:inline=block  </h5>
+
+<div>
+    <h4>步骤1： 隐藏</h4>
+    <h6></h6>
+    <style>div.none{display: none}</style>
+
+    <div>可见的div1</div>
+    <div class="none">隐藏的div2,使用display:none隐藏</div>
+    <div>可见的div3</div>
+
+    <hr/>
+
+    <h4>步骤2： 块级</h4>
+<!--    display：block 表示 块级元素
+                块 级 元素会自动 的 在 前面 和 后面 加上 换行，
+                并且 在其上 的 width 和 height 业能够生效
+                div 默认 是 块级 元素
+                span 默认 是 内联元素
+                （不会换行，width 和 height 也不会生效）
+                -->
+    <style>
+        div.block,span{
+            border: 1px red solid;
+            margin: 10px;
+            width: 200px;
+            height: 100px;
+        }
+        span.block{
+            display: block;
+        }
+    </style>
+    <div class="block">普通 的 div 的块</div>
+    <span> 这是 普通 span </span> <span> 这是普通 span</span><span> 这是普通 span</span>
+    <span class="block">this is span, 被改成 了 块级 元素</span>
+
+
+    <hr/>
+    <h4>步骤3： 内联</h4>
+<!--    display： inline 表示 内联元素
+    内联元素 前后 没有 换行，并且 在 其上 的 width 和 height 也是 无效的
+    其大小 由 其中 的 内容 决定
+
+    div 默认为 块 元素
+    span 默认 为 内联元素
+    -->
+     <style>
+         div.s{
+             border: 1px solid lightgray;
+             margin: 10px;
+             width: 200px;
+             height: 100px;
+             display: inline;
+         }
+     </style>
+
+    <span>这是普通span</span> <span>这是普通span</span> <span>这是普通span</span><br/>
+
+    <div class="s">这是div，被改造成了内联元素</div>
+    <hr/>
+
+    <h4>步骤4： 内联-块级</h4>
+    <h6 style="white-space: pre-wrap">
+        内联 是 不换行的。但是不能指定大小
+        块级是能指定 大小， 但是会换行
+
+        有时候，需要元素处于同一个行，同时还能指定大小，。
+        这个时候，就需要使用到 内联-块级 inline-block
+
+    </h6>
+    像这样 ，每个都能设置宽度 ，同时还能在同一行。
+    <br>
+    <style>
+        span.in-block{
+            display: inline-block;
+            border: 2px blue dashed;
+            margin: 10px;
+            width: 100px;
+            height: 30px;
+        }
+    </style>
+    <span class="in-block">盖伦</span>
+    <span class="in-block">蒙多医生</span>
+    <span class="in-block">奈德丽</span>
+    <span class="in-block">蒸汽机器人</span>
+    <hr/>
+
+
+    <h4>步骤5： 其他</h4>
+    <h6 style="white-space: pre-wrap">
+        其他的显示方式：
+        list-item 显示 为列表
+        table 显示 为表格
+        inline-table 显示 为 前后 无换行 的 表格
+        table-cell、 显示 为 单元格
+        这些都不太常见
+    </h6><hr/>
+    <hr/>
+
+</div>
+
+
+
+<h1 style="text-align: center">3。 css 布局： 水平居中</h1><hr/>
+<div>
+    <h4>示例1： 内容居中</h4>
+    <style>
+        div.center{
+            border: 1px green solid;
+            margin: 10px;
+        }
+    </style>
+    <div align="center" class="center">
+         这是通过 属性 align = "center" 实现 内容的居中
+    </div>
+    <div style="text-align: center" class="center">
+        通过样式 style = "text-align：center"实现 居中 的内容
+    </div>
+    <hr/>
+
+
+    <h4>示例2： 元素居中</h4>
+    <style>
+        div.c{
+            border: solid 1px blue;
+            margin: 10px;
+        }
+        span.c{
+            border: solid 1px lightgray;
+            /*margin: 10px;*/
+        }
+    </style>
+
+    <div class="c">默认情况下，div 会占用100% 的宽度，所以无法观察元素是否居中</div>
+
+    <div class="c" style="width: 300px; margin: 0 auto">
+        设置 div 的宽度，然后 再使用 样式 margin：0 auto 来使得 元素居中
+    </div>
+
+    <span class="c" style="width: 300px; margin: 0 auto">
+        span 是内联元素，没办法 设置 宽度， 所以 不能通过 margin：0 auto 来 实现元素的居中
+    </span>
+   <div class="c" style="text-align: center">
+       <span>span 的居中 可以通过放置 在 div 中，<br/>
+           然后 让 div text-align = center 实现 元素 的居中操作 br
+       不能自动换行，需要手动实现</span>
+   </div>
+</div>
+
+<br/><br/><hr/><hr/>
+<!---->
+<!---->
+<!---->
+
+<h1 style="text-align: center">4。 css 布局： 左侧 固定，右边自动 占满</h1><hr/>
+
+<div>
+    <h4>示例1： 左侧固定， 右边自动占满</h4>
+    <style>
+        div#left{
+            width: 200px;
+            float: left;
+            background-color: pink;
+        }
+        div#right{
+            overflow: hidden;
+            background-color: lightblue;
+            height: 100px;
+            /*# 这里把overflow:hidden去掉，并且把.right的高度增加，就会看到.right会包围.left。*/
+        }
+    </style>
+    <h6 style="width: 300px; margin: 0 auto;">verflow:hidden有什么用呢？ 它的用途是清除浮动. <br/></h6><br/>
+     <div id="left">左边 固定 宽度</div>
+    <div id="right"> 右边自动 填满</div>
+</div>
+
+<br/><br/><hr/><hr/>
+<!---->
+<!---->
+<!---->
+
+<h1 style="text-align: center">5。 css 布局：  垂直 居中</h1><hr/>
+<h5 style="white-space: pre-wrap">
+    步骤 1 : line-height方式
+    步骤 2 : 内边距方式
+    步骤 3 : table方式
+</h5>
+
+<div>
+<h4>步骤 1 : line-height方式 </h4>
+    <style>
+        div#d{
+            line-height: 200px;
+            border: solid 1px lightblue;
+        }
+
+    </style>
+    <div id="d">line-height 适合 单独 一行 垂直居中</div>
+
+
+    <hr/>
+
+    <h4>步骤 2 : 内边距 的方式 </h4>
+    <h6> 借助设置 相同 的上下 内边距， 实现垂直居中效果， 可以用在多行文本上</h6>
+
+    <style>
+        div#div{
+            padding: 30px 0px ;
+            border: solid 1px lightblue;
+        }
+    </style>
+    <div id="div">多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容
+        多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容
+        多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多
+        行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多行内容 多
+        行内容 多行内容 多行内容 多行内容 多行内容 多行内容  </div>
+    <hr/>
+
+
+    <h4>步骤 3 : table方式 </h4>
+    <h6 style="white-space: pre-wrap">
+        首先 通过 display： table-cell； 把 div 用单元格的形式显示；
+    然后借用单元格 的垂直居中 vertial-align：middle； 来达到效果
+    这样对图片 也可以 居中，
+    上一步 line-height就不能 对图片实现居中
+    </h6>
+
+    <style>
+        div.dddd {
+            display: table-cell;
+            vertical-align: middle;
+            height: 300px;
+        }
+
+        div.dddd{
+            border:solid 1px lightskyblue;
+        }
+    </style>
+
+    <div class="dddd">
+        <img src="https://how2j.cn/example.gif">
+    </div>
+</div>
+<br/><br/><hr/><hr/>
+<!---->
+<!---->
+<!---->
+
+<h1 style="text-align: center">5。 css 布局：  左右固定</h1><hr/>
+<h5 style="white-space: pre-wrap">
+</h5>
+<div>
+    <style>
+        div.l{
+            width: 200px;
+            float: left;
+            background-color: pink;
+            text-align: left;
+        }
+        div.r{
+            width: 200px;
+            float: right;
+            background-color: pink;
+            text-align: right;
+        }
+        div.m{
+            /*margin: 0 200px;
+            margin-top,bottom=0, margin-right,left = 200px*/
+            margin: 0 200px;
+            background-color: lightblue;
+            text-align: center;
+            /*height: 100px;*/
+        }
+    </style>
+<div class="l">左边固定宽度</div>
+    <div class="r" >右边固定宽度 </div>
+    <div class="m"> 中间自适应</div>
+</div>
+
+<br/><br/><hr/><hr/>
+<!---->
+<!---->
+<!---->
+
+<h1 style="text-align: center">6。 一个div始终贴在下方</h1><hr/>
+<h5 style="white-space: pre-wrap">
+     首先 把 蓝色 div 设置 为 相对定位
+    然后把内部的绿色 div 设置为绝对位置， bottom：0 表示下帖下面
+</h5>
+<div>
+
+<style>
+    div#div1{
+        position: relative;
+        height: 300px;
+        width: 90%;
+        background-color: skyblue;
+    }
+    div#div2{
+        position: absolute;
+        bottom: 0;
+        height: 30px;
+        width: 100%;
+        background-color: lightgreen;
+
+    }
+</style>
+    <div id="div1">
+        <div id="div2">
+             无论蓝色 div 高度 如何 变化， 绿色div 都会贴 在 下面
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 基础练习3</title>
+</head>
+<body>
+
+
+
+<hr/>
+<hr/>
+<h3 align="center" style="border: red 3px solid; border-collapse: collapse; padding: 20px">css： 边框样式的详解</h3>
+<div>
+    <h5>示例1： 边框风格： border-style</h5>
+<!--    属性： border-style
+        solid 实线
+        dotted  点状
+           dashed 虚线
+           double 双线-->
+    <style>
+        div.solid{border-style: solid}
+        div.dotted{border-style: dotted}
+        div.dahsed{border-style: dashed}
+        div.double{border-style: double}
+    </style>
+    <div>默认无边框div</div><br/>
+    <div class="solid"> 实线边框</div><br/>
+    <div class="dotted"> 点状边框</div><br/>
+    <div class="dahsed"> 虚线边框</div><br/>
+    <div class="double">  双线边框</div><br/>
+    <hr/>
+
+
+    <h5>示例2： 边框颜色 border-color </h5>
+<!--    属性，border-color
+            值: red，rgb， #00ff00-->
+    <style>
+        div.red{
+            border-style: solid;
+            /* border 有线之后，才能上颜色*/
+            border-color: red;}
+    </style>
+    <div> 默认无边框div </div><br/>
+    <div class="red"> 实线红色边框  </div><br/>
+    <hr/>
+
+
+    <h5>示例3： 边框宽度: border-width </h5>
+<!--     属性： border-width-->
+<!--         值： 数字-->
+    <style>
+        div.red{
+            border-style: solid;
+            border-color: red;
+            border-width: 1px;
+        }
+        div.default{border-style: solid;
+        border-color: red}
+    </style>
+    <div> 默认无边框div </div>
+    <div class="red"> 实线红色细边框  </div><br/>
+    <div class="default"> 实线红色默认宽度边框  </div><br/>
+    <hr/>
+<!--    -->
+
+
+    <h5>示例4： 都放在一起： border</h5>
+<!--    属性： border
+                值： 颜色，风格， 宽度-->
+    <style>
+        div.r{border: 2px dotted lightblue}
+    </style>
+    <div> 默认无边框div </div>
+    <div class="r"> 点状天蓝色细边框  </div><br/>
+    <hr/>
+<!--    -->
+
+    <h5>示例5： 只有一个方向有边框</h5>
+<!--    通过制定位置，可以只给一个方向设置边框风格，颜色和宽度-->
+<!--    border-top-style:solid;-->
+<!--    border-top-color:red;-->
+<!--    border-top-width: 50px;-->
+<!--    top,bottom,left,right 分别对应上下左右-->
+    <style>
+        div.test{
+            width: 150px;
+            height: 150px;
+            border-top-style: solid;
+            border-top-color: red;
+            border-top-width: 20px;
+            background-color: lightblue;
+            border-bottom-style: dashed;
+            border-bottom-color: blue;
+            border-bottom-width: 10px;
+        }
+    </style>
+    <div class="test">
+        只有上面有边框
+    </div>
+    <hr/>
+
+
+    <h5>示例6： 有交界的边都有边框</h5>
+<!--    比如上和左就是有交界的，而上和下就没有交界
+当有交界的边同时出现边框的时候，就会以倾斜的形式表现交界线。-->
+    <style>
+        div.lefttop{
+            text-align: center;
+            width: 150px;
+            height: 150px;
+            background-color: lightgray;
+            border-top-style: solid;
+            border-top-color: red;
+            border-top-width: 50px;
+
+            border-left-style: solid;
+            border-left-color: blue;
+            border-left-width: 50px;
+        }
+        div.alldirection{
+            text-align: center;
+            width: 150px;
+            height: 150px;
+            background-color: lightgray;
+            border-top-style: solid;
+            border-top-color: red;
+            border-top-width: 40px;
+
+            border-left-style: solid;
+            border-left-color: blue;
+            border-left-width: 40px;
+
+            border-bottom-style: solid;
+            border-bottom-color: green;
+            border-bottom-width: 40px;
+
+            border-right-style: solid;
+            border-right-color: yellow;
+            border-right-width: 40px;
+        }
+    </style>
+    <div class="lefttop">
+        左边和上边都有边框
+    </div>
+    <br>
+    <div class="alldirection">
+        四边都有边框　
+    </div>
+    <hr/>
+
+
+    <h5>示例7： 块级元素和内联元素的边框区别</h5>
+<!--                                             可以看到，块级元素div默认是占用100%的宽度-->
+<!--                                                                                    常见的块级元素有div h1 p 等-->
+<!--    而内联元素span的宽度由其内容的宽度决定-->
+<!--                                        常见的内联元素有 a b strong i input, span 等-->
+    <style>
+        span.rd{border: solid red 1px}
+        div.rd{border: solid red 1px}
+    </style>
+    <div class="rd"> div块元素：宽度占100%，实线红色细边框  </div><br/>
+    <span class="rd"> span-内联元素：宽度由内容长度决定：实线红色细边框  </span><br/>
+    <hr/>
+
+
+    <h5>示例8： 练习-表格斑马线</h5>
+    <style>
+        table{
+            border-collapse: collapse;
+        width: 80%}
+        tr.head{
+            border-bottom-width: 2px;
+        }
+        tr.even{
+            background-color: #f8f8f8;
+        }
+        tr{
+            border-bottom-style: solid;
+            border-bottom-color: lightgray;
+            border-bottom-width: 1px;
+            height: 35px;
+        }
+        td{
+            text-align: center;
+            width: 25%;
+        }
+    </style>
+    <table  align="center" >
+        <tr class="head">
+            <td>id</td>
+            <td>名称</td>
+            <td>血量</td>
+            <td>伤害</td>
+        </tr>
+        <tr class="even">
+            <td>1</td>
+            <td>gareen</td>
+            <td>340</td>
+            <td>58</td>
+        </tr>
+        <tr class="odd">
+            <td>2</td>
+            <td>teemo</td>
+            <td>320</td>
+            <td>76</td>
+        </tr>
+        <tr class="even">
+            <td>3</td>
+            <td>annie</td>
+            <td>380</td>
+            <td>38</td>
+        </tr>
+        <tr class="odd">
+            <td>4</td>
+            <td>deadbrother</td>
+            <td>400</td>
+            <td>90</td>
+        </tr>
+    </table>
+    <hr/>
+
+    <h5>示例9： 答案-表格：斑马线</h5>
+    <hr/>
+
+    <h5>示例10： 练习：美人尖</h5>
+    <style>
+        div.san{
+            width: 0px;
+            height: 0px;
+            border-top-color: red;
+            border-top-style: solid;
+            border-top-width: 10px ;
+
+            border-left-style: solid;
+            border-left-color: white;
+            border-left-width: 10px;
+
+            border-right-style: solid;
+            border-right-color: white;
+            border-right-width: 10px;
+        }
+    </style>
+    <div class="san"></div>
+    <hr/>
+
+
+    <h5>示例11： 练习：美人尖</h5>
+    <hr/>
+
+    <h5>示例12： 练习：短线下划线</h5>
+    <style>
+        table.sss{
+            width: 80%;
+            border-collapse: separate;
+        }
+        table.sss td{
+            text-align: center;
+            width: 25%;
+        }
+
+        table.sss tr.h td{border-bottom: #b2d1ff 3px solid;}
+
+    </style>
+    <table align="center" class="sss">
+        <tr class="h">
+            <td>商品</td>
+            <td>数量</td>
+            <td>价格</td>
+            <td>小记</td>
+        </tr>
+<!--        <tr class="rowborder">-->
+<!--            <td></td>-->
+<!--            <td></td>-->
+<!--            <td></td>-->
+<!--            <td></td>-->
+<!--        </tr>-->
+    </table>
+    <hr/>
+
+    <h5>示例13： 练习：短线下划线</h5>
+    <hr/>
+</div>
+
+
+
+
+<hr/>
+<hr/>
+
+<h3 align="center" class="css3" style="border: red 3px solid; border-collapse: collapse; padding: 20px">css： 内边距 ，以及当前设置的数值小于 4个的时候的处理</h3>
+<h4>元素的内边距</h4>
+<h4>指的是 元素 里的 内容和 边框 之间的 距离</h4>
+
+<h4>属性：<br/>
+    padding-left 左内边距<br/>
+    padding-right： 右 内边距<br/>
+    padding-top ： 上内边距<br/>
+    padding-bottom： 下内边距<br/>
+    padding： 上 右 下 左 （顺时针）<br/></h4>
+<hr/>
+
+<div>
+
+
+    <h5>示例1： 左边距： padding-left</h5>
+<!--    示例1： 左边距-->
+    <style>
+        span.red{
+            border: red solid 5px;
+            background-color: green;
+        }
+        span.pad-left{
+            border: red 5px solid;
+            background-color: green;
+            padding-left: 50px;
+        }
+    </style>
+    <span class="red"> 无 内边距 的 span  </span> <br/><br/>
+    <span class="pad-left"> 左边距为50的span  </span> <br/>
+    <hr/>
+
+
+    <h5>示例2： 内边距， 写1个  和 写 4个 的区别</h5>
+<!--    属性： padding
+                值： 如果只写一个， 即四个方向 的值
+                值: 如果写四个    即 四个方法的值， 上，右，下，左， 以顺时针的方向一次赋值-->
+    <style>
+        span.pad-one{
+            border: solid red 5px;
+            background-color: green;
+            padding: 20px;
+        }
+        span.pad-four{
+            border: red solid 5px;
+            background-color: green;
+            padding: 10px 20px 30px 40px;
+        }
+    </style>
+    <br/>
+    <span class="pad-one">padding: 20 的 span(上，右，下，左 padding都是20，设置一个)</span> <br/><br/><br/><br/>
+
+    <span class="pad-four">padding: 10 20 30 40 d的 span，各个方向padding单独设置 </span> <br/><br/> <br/><br/>
+    <hr/>
+    <hr/>
+
+
+   <style>
+       div.three{
+           white-space: pre-wrap;
+       }
+   </style>
+    <div class="three">
+        <h5>示例3：  当内边距的值少于4 个的时候</h5>
+
+        如果 缺少左，内边距 的值， 则 使用右 的内边距 的 值；<br/>
+        如果 缺少下 内边距 的 值，则 使用上 内边距 的值；<br/>
+        如果 缺少右 内边距 的值， 则 使用上 内边距的值；<br/>
+
+        举例说明<br/>
+        这是完整 4 个的：<br/>
+                        padding： 10 20 40 80 <br/>
+        如果只有 3 个：<br/>
+                        padding： 10 20 40， 那么 left 取 right <br/>
+                        即： padding 10 20 40 = padding： 10 20 40 left=20<br/>
+        如果 只有 2个：<br/>
+                         padding： 10 20 <br/>
+                         那么 bottom 取 top，left 取 right <br/>
+                         padding 10 20  == padding 10 20 bottom =10 ， left = 20 <br/>
+        如果 只有 1 个：
+                    padding：10<br/>
+                     那么 right = top=10， bottom = top=10， left = right = 10<br/>
+                    然后 padding = 10 10 10 10<br/>
+    </div>
+</div>
+
+<hr>
+<hr>
+<hr/>
+<h1 style="border: red 3px solid; border-collapse: collapse; padding: 20px; text-align: center">
+    CSS: - 外边距
+</h1>
+<div>
+    <h4 style="white-space: pre-wrap">外边距的样式
+        元素外边距
+        指的是： 元素边框 和 元素 边框 之间 的 距离
+        属性：
+            margin-left， 左外边距
+            margin-right， 右 外边距
+            margin-top； 上 外边距
+            margin-bottom： 下外边距
+        <br/></h4>
+
+    <h5>示例1； 左 外边距</h5>
+    <style>
+        span.a{
+            border: 2px solid red;
+            background-color: green;
+        }
+        span.margin{
+            border: 2px red solid;
+            background-color: green;
+            margin-left: 10px;
+        }
+    </style>
+    <span class="a"> 无外边距的span  </span>
+    <span class="a"> 无外边距的span  </span>
+    <br/> <br/>
+    <span class="a"> 无外边距的span  </span>
+    <span class="margin"> 有左外边距的span  </span>
+    <br/> <br/>
+    注：像span这样的内联元素，默认情况下，只有左右外边距，没有上下外边距。 为了观察上下外边距的效果，可以采用块级元素，比如div.<br/>
+    <hr/>
+    <hr/>
+    <br/>
+</div>
+
+
+<div>
+    <h1 style="border: red 3px solid; border-collapse: collapse; padding: 20px; text-align: center">
+        CSS  边框模型
+    </h1>
+
+    <h4 style="white-space: pre-wrap">
+        示例1： 边框模型
+        <hr/>
+        真正决定一个元素的表现形式， 是由其边框模型决定的
+        如图所示，
+
+        蓝色框 即 为内容
+        width： 70px 表示内容 的大小（宽度）
+
+        红色框 即 为 边框 border
+        内容到边框之间的距离，即 为内边距 5px
+
+        灰色框： 是指 边框 和 其他 元素 之间 的距离， 即 为 外边距：10px
+    </h4>
+    <style>
+        div.box{
+            border: red 2px solid;
+            font-size: 70%;
+            background-color: lightblue;
+            width: 70px;
+            padding: 5px;
+            margin: 20px;
+
+        }
+        div.other{
+            border: red 2px solid;
+            font-size: 70%;
+        }
+        div{margin: 10px}
+
+    </style>
+
+    <div class="other">
+        其他元素
+    </div>
+        <div class="box">
+            内容 宽度 70px<br/><br/>
+            内边距： 5px<br/><br/>
+            外边距：10px<br/>
+        </div>
+    <div class="other">
+        其他元素
+    </div>
+</div>
+
+<hr/>
+<hr/>
+<br/>
+<div>
+    <h1 style="border: red 3px solid; border-collapse: collapse; padding: 20px; text-align: center">
+        css 超链状态
+    </h1>
+    <h5 style="white-space: pre-wrap; ">
+    示例1： 超链状态
+        伪类， 所谓的伪类 即 被 选中 的元素处于某种 状态的时候
+        超链接 状态由4 种
+        1. link - 初始状态，从未被访问过
+        2. visited - 已经被访问
+        3. hover - 鼠标悬停于 超链接 的上方
+        4. active - 鼠标左键点击下去， 但是尚未 弹起来
+    </h5>
+    <style>
+        a.check1:link{color: blue}
+        a.check1:visited{color: red}
+        a.check1:hover{color: green}
+        a.check1:active{color: yellow}
+    </style>
+    <a href="http://www.google.com" class="check1">google搜索： 超链接 的 不同状态</a>
+    <hr/>
+
+    <h5 style="white-space: pre-wrap; ">
+        示例2： 去除超链接的 下划线
+
+        默认状态下，超链接是有下划线的，但是现在的网站上的超链接 普遍采用的是 无下划线 的风格
+
+        使用text-decoration：none 文本修饰方式来解决
+    </h5>
+    <style>
+        a.no_underline{text-decoration: none;}
+    </style>
+    <a href="http://baidu.com" >默认 的 超链接，带有下划线</a><br/><br/>
+    <a href="http://www.hello.au" class="no_underline">去除下划线的超链接</a>
+    <hr/>
+
+
+    <h5 style="white-space: pre-wrap; ">
+        示例3： 下拉菜单风格
+    </h5>
+
+    <style>
+        a {
+            font-size: 14px;
+            color: cornflowerblue;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        div.menu {
+            border: 1px solid lightgray;
+            /*position: absolute;*/
+            width: 70px;
+            margin:10px 0px 0px 70px;
+            /*left: 80px;*/
+            /*top: 20px;*/
+        }
+        a.h2{
+            display: block;
+            color: blue;
+            padding: 10px 0px 10px 20px;
+            font-family: 华文楷体;
+        }
+        a.h2:hover{
+            background-color: green;
+        }
+
+
+    </style>
+
+    <a href="#">武器</a>
+    <a href="#">护甲</a>
+    <a href="#">英雄</a>
+    <div class="menu">
+        <a href="#" class="h2">盖伦</a>
+        <a href="#" class="h2">提莫</a>
+        <a href="#" class="h2">安妮</a>
+        <a href="#" class="h2">死哥</a>
+    </div>
+    <div style="border: 1px solid red;"></div>
+
+<!--    <div style="height:200px"></div>-->
+
+</div>
+
+
+<hr/>
+<hr/>
+<br/>
+<div>
+    <h1 style="border: red 3px solid; border-collapse: collapse; padding: 20px; text-align: center">
+        css 隐藏
+    </h1>
+
+    <h5 style="white-space: pre-wrap; ">
+        示例1： 隐藏
+            隐藏原色有两种方式：
+            1。 display： none
+            2。 visibility：hidden
+        使用 display：none 隐藏一个元素，这个元素将不在占原空间 "坑" 让出来了, 不占空间
+        使用 visibility： hidden，隐藏一个元素， 这个元素继续 占有原空间， 只是 "看不见"
+    </h5>
+    <style>
+        div.display{
+            display: none;
+        }
+        div.visibility{
+            visibility: hidden;
+        }
+    </style>
+    <div>
+        可见的 div1
+    </div>
+    <div class="display"> 隐藏的 div2， 使用display： none 隐藏</div>
+
+    <div> 可见的 div3 </div>
+
+    <div class="visibility">隐藏 的 div4， 使用 visibility： hidden 隐藏</div>
+
+    <div >可见的 div5</div>
+
+
+
+</div>
+
+
+</body>
+</html>
