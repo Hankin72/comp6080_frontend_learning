@@ -64,14 +64,24 @@
         x = 5;
         x+= 6;
         document.write('x+=6就是 x=x+6的意思，所以最后的值就等于: '+x);
-
-
     </script>
+</div>
 
+<div class="row">
+    示例4： +运算符的多态<br/>
 
-
-
-
+    <div style="white-space: pre-wrap;">
+        + 具备多态特征
+        当两边都是数字的时候 ，表现为算数运算符
+        当任意一边是字符串的时候，表现为字符串连接符
+    </div>
+    <script>
+        document.write('当+两边都是数字的时候，+就是加法运算符，所以1+2='+(1+2));
+        document.write("<br>");
+        document.write('当+任意一边是字符串的时候，+就是字符串连接符，所以1+\"2\"='+ (1+"2"));
+        document.write("<br>");
+        document.write("sdasdasdasd"+121312312312+'asdasdasd');
+    </script>
 </div>
 
 

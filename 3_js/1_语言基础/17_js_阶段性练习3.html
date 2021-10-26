@@ -3,8 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="p3.css">
 </head>
-<body>
 
+<body>
+<div class="row">
+    <table>
+        <tr>
+            <td class="col1">
+                起始资金
+            </td>
+            <td class="col2" valign="center">
+                <input type="number" id="start-capital">
+                <label for="start-capital">¥</label>
+            </td>
+        </tr>
+        <tr>
+            <td class="col1">
+                每年收益
+            </td>
+            <td class="col2">
+                <input type="number" id="rate">
+                <label for="rate">%</label>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="col1">
+                复利年数
+            </td>
+            <td class="col2">
+                <input type="number" id="years">
+                <label for="years">年</label>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="col1">
+                每年追加资金
+            </td>
+            <td class="col2">
+                <input type="number" id="additional-funds-per-year">
+                <label for="additional-funds-per-year">¥</label>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2" class="button" align="center">
+                <button type="button" id="compute" onclick="compute()">计算</button>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="col1">
+                本金和
+            </td>
+            <td class="col2 res">
+                <input type="text" id="principle-sum">
+                <label for="principle-sum">¥</label>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="col1">
+                利息和
+            </td>
+            <td class="col2 res">
+                <input type="text" id="interest-sum">
+                <label for="interest-sum">¥</label>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="col1">
+                本息和
+            </td>
+            <td class="col2 res">
+                <input type="text" id="principle-interest-sum">
+                <label for="principle-interest-sum">¥</label>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="row">
+    <table>
+        <tr>
+            <td class="col1">姓名：</td>
+            <td class="col2"><input type="text"></td>
+        </tr>
+        <tr>
+            <td class="col1">年龄：</td>
+            <td class="col2"><input type="text"></td>
+        </tr>
+        <tr>
+            <td class="col1">性别：</td>
+            <td class="col2" id="gender" align="center" valign="center">
+                男<input type="radio" name="activity"><br/>
+                女<input type="radio" name="activity"></td>
+        </tr>
+        <tr>
+            <td class="col1">身高(m)：</td>
+            <td class="col2"><input type="text" id="m"></td>
+        </tr>
+        <tr>
+            <td class="col1">体重(kg)：</td>
+            <td class="col2"><input type="text" id="kg"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <button onclick="get()" id="generate">生成</button>
+            </td>
+        </tr>
+        <tr>
+            <td class="col1">BMI:</td>
+            <td class="col2"><input type="text" id="bmi"></td>
+        </tr>
+        <tr>
+            <td class="col1">身体状况：</td>
+            <td class="col2"><input type="text" id="good"></td>
+        </tr>
+    </table>
+</div>
+<script src="p3.js"></script>
 </body>
 </html>

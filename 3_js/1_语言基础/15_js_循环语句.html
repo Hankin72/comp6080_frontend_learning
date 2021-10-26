@@ -5,6 +5,94 @@
     <title>Title</title>
 </head>
 <body>
+1. 循环语句<br/>
 
+<script>
+    function p(s) {
+        document.write(s);
+        document.write("<br>");
+    }
+
+    document.write("使用for循环打印 0 到 4<br>");
+
+    for (let i = 0; i < 5; i++) {
+        p(i);
+    }
+
+    let i = 0;
+    while (i < 5) {
+        p(i);
+        i++;
+    }
+    document.write(i);
+</script>
+<hr/>
+
+
+<h4>示例 3 : 循环语句，至少执行一次</h4>
+<script>
+
+    function p(s) {
+        document.write(s);
+        document.write("<br>");
+    }
+
+    document.write("使用do-while循环打印 0 到 4<br>");
+
+    let j = 0;
+    do {
+        p(j);
+        j++;
+    } while (j < 5);
+    document.write(j);
+</script><hr/>
+
+
+
+<div>
+    <h4>
+        示例 5 : 继续下一次循环
+    </h4>
+    continue 表示放弃本次循环，进行下一次循环<br/>
+
+    <script>
+        function p(s) {
+            document.write(s);
+            document.write("<br>");
+        }
+        document.write("使用for循环打印 0 到 4<br>如果发现是3，就<span style='color:red'>放弃本次循环，并且进入下一次</span>循环<br>");
+
+        for (let i=0;i<5;i++){
+            if(i==3){
+                continue;
+            }
+            p(i);
+        }
+    </script>
+
+</div><hr/>
+
+<div>
+    <h4>
+        示例 6 : 终止循环
+    </h4>
+    break表示终止循环，循环体结束<br/>
+
+    <script>
+        function p(s) {
+            document.write(s);
+            document.write("<br>");
+        }
+        document.write("使用for循环打印 0 到 4<br>如果发现是3，就<span style='color:red'>终止循环，循环体结束 </span><br>");
+
+        for (let i=0;i<5;i++){
+            if(i==3){
+                break;
+            }
+            p(i);
+        }
+    </script>
+
+</div>
 </body>
 </html>

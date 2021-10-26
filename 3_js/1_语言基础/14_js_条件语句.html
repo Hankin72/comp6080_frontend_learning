@@ -5,6 +5,86 @@
     <title>Title</title>
 </head>
 <body>
+<h1>语言基础 - 条件语句</h1>
+<hr/>
+<div>
+
+    <script>
+        let age=15;
+        if (age<18){
+            document.write("如果年纪小于18，就看 卡通");
+            console.log("如果年纪小于18，就看 卡通");
+        }
+    </script><hr/>
+
+    <script>
+
+        var a = 22;
+
+        if(a<18){
+            document.write("年纪小于18就看卡通");
+        }
+        else{
+            document.write("否则就看 你懂的");
+        }
+    </script><hr/>
+
+    <script>
+        let ages = 20;
+        if (ages<18){
+            document.write("小于18就看 卡通");
+        }
+        else if (ages<22){
+            document.write("大于等于18，并且小于22，就看 你懂的");
+        }
+        else{
+            document.write("大于等于22就看 新闻联播");
+        }
+    </script><hr/>
+
+    <div>
+        <h3>switch 多条件判断</h3>
+        <p style="white-space: pre-wrap">
+            switch 语句与else if一样，也是进行多条件判断的
+            需要注意的是，每个判断结束，都要加上break;
+
+        </p>
+        <script>
+            let day = new Date().getDay();  //通过日期对象获取数字形式的星期几
+            let today;
+            switch (day){
+                case 0:
+                    today="星期天";
+                    break;
+                case 1:
+                    today="星期一";
+                    break;
+                case 2:
+                    today="星期二";
+                    break;
+                case 3:
+                    today="星期三";
+                    break;
+                case 4:
+                    today="星期四";
+                    break;
+                case 5:
+                    today="星期五";
+                    break;
+                case 6:
+                    today="星期六";
+                    break;
+            }
+
+            document.write(`今天是${today}`);
+
+
+        </script>
+    </div>
+
+
+
+</div>
 
 </body>
 </html>

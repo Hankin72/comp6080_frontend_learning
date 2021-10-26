@@ -5,6 +5,57 @@
     <title>Title</title>
 </head>
 <body>
+<h3>js 提供了一种 try catch 的错误处理机制， 当有错误抛出时， 可以catch住<br/>
+    （类似于python中 try except？？？）
+</h3><br/><hr/>
 
+<div>
+    <h4>
+        示例 1 : 调用不存在的函数
+    </h4>
+    在本例中故意调用不存在的函数f2, 因为函数f2不存在，所以会出错，并且会中断执行。 导致后面的代码也不会执行了。<br/><br/>
+    <script>
+        document.write("试图调用不存在的函数f2()就会报错，并且导致javascript中止执行，后面的代码也不会执行了");
+        function f1(){
+            // 函数f1存在
+        }
+        alert(1);
+        f2(); // //调用不存在的函数f2();
+        alert(2);
+        document.write("剩下的代码");
+    </script>
+
+
+</div><hr/>
+
+
+<div>
+    <h4>
+        示例 2 : try catch
+    </h4>
+    对f2()调用进行try catch的处理。 捕捉到了该方法未定义的错误。并打印出来。
+    后续的代码，也就可以继续执行了。<br/><br/>
+    <script>
+
+        function f1(){
+            // 函数f1存在
+        }
+        try{
+            alert("试图调用不存在的函数f2()<br>");
+            document.write("试图调用不存在的函数f2()<br>");
+            f2();
+            alert("调取成功");
+        }
+        catch (err){
+            alert("调的函数不存在 打印 出 错误的 message<br>\"");
+            document.write("捕捉到错误产生:<br>");
+            document.write(err.message);
+        }
+
+        document.write("<p>因为错误被捕捉了，所以后续的代码能够继续执行</p>");
+    </script>
+
+
+</div>
 </body>
 </html>
