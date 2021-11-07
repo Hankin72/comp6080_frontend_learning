@@ -1,0 +1,101 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #f1f2f6;
+}
+
+.container {
+    width: 284px;
+    height: 400px;
+    background-color: lightgreen;
+    position: relative;
+    perspective: 500px;
+}
+
+.cards-wrap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: yellow;
+    transform-style: preserve-3d;
+    transform: rotateY(0) translateZ(-700px);
+
+    animation: carousel 20s infinite cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.cards {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cards:nth-child(1) {
+    background-color: #fdd94f;
+    transform: rotateY(0) translateZ(900px);
+
+}
+
+.cards:nth-child(2) {
+    background-color: #f78949;
+    transform: rotateY(60deg) translateZ(900px);
+
+}
+
+.cards:nth-child(3) {
+    background-color: #fbab48;
+    transform: rotateY(120deg) translateZ(900px);
+}
+
+.cards:nth-child(4) {
+    background-color: lightskyblue;
+    transform: rotateY(180deg) translateZ(900px);
+}
+
+.cards:nth-child(5) {
+    background-color: green;
+    transform: rotateY(240deg) translateZ(900px);
+}
+.cards:nth-child(6) {
+    background-color: red;
+    transform: rotateY(300deg) translateZ(900px);
+}
+
+
+@keyframes carousel {
+    0% {
+        transform: translateZ(-900px) rotateY(0);
+    }
+    15%{
+        transform: translateZ(-900px) rotateY(-60deg);
+    }
+    30% {
+        transform: translateZ(-900px) rotateY(-120deg);
+    }
+    45% {
+        transform: translateZ(-900px) rotateY(-180deg);
+    }
+    60% {
+        transform: translateZ(-900px) rotateY(-240deg);
+    }
+    75% {
+        transform: translateZ(-900px) rotateY(-300deg);
+    }
+
+    100% {
+        transform: translateZ(-900px) rotateY(-360deg);
+    }
+}
+

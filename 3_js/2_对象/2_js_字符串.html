@@ -5,6 +5,373 @@
     <title>Title</title>
 </head>
 <body>
+<h4>与数字类似，基本类型String也有一个对应的String 对象，并且提供了很多有用的方法。</h4>
+<h4 style="white-space: pre-wrap; border: black 1px solid;">
+    new String() --------                 创建字符串对象
+    属性 length ---------                 字符串长度
+    方法 charAt charCodeAt --------       返回指定位置的字符
+    方法 concat ---------                 字符串拼接
+    方法 indexOf lastIndexOf ---------    子字符串出现的位置
+    方法 localeCompare --------------     比较两段字符串是否相同
+    方法 substring -----------------      截取一段子字符串
+    方法 split --------------------   根据分隔符，把字符串转换为数组
+    方法 replace -----------------  替换子字符串
+    <hr/>
+    方法 charAt   ----------------返回基本类型
+    方法 concat
+    方法 substring
+    <hr/>
+
+</h4>
+
+<br/>
+<hr/>
+<div style="background-color: lightgray">
+    <h3>示例 1 : 创建字符串对象</h3>
+    与Number类似的，可以通过new String()创建一个String对象
+    <br/>
+    <hr/>
+    <script>
+        var x = "5";
+        var y = new String(x);
+        document.write("变量x的值是:"+x);
+        document.write("<br>");
+        document.write("变量x的类型是:"+(typeof x));
+        document.write("<br>");
+        document.write("变量y的值是:"+y);
+        document.write("<br>");
+        document.write("变量y的类型是:"+(typeof y));
+        document.write("<br>");
+    </script>
+</div>
+<hr/>
+<br/>
+
+<br/>
+<hr/>
+<div style="background-color: lightgray">
+    <h3>示例 2 : 字符串长度</h3>
+    属性 length 返回字符串的长度
+    <br/>
+    <hr/>
+    <script>
+        var y = new String("Hello JavaScript");
+        document.write("通过.length属性获取字符串'Hello JavaScript'的长度"+y.length);
+    </script>
+</div>
+<hr/>
+<br/>
+
+<br/>
+<hr/>
+<div style="background-color: lightgray">
+    <h3>示例 3 : 返回指定位置的字符</h3>
+    charAt 返回指定位置的字符<br/>
+    charCodeAt 返回指定位置的字符对应的unicode码
+    <hr/>
+    <br/>
+
+    <script>
+        var y = new String("Hello JavaScript");
+        document.write("字符串y的值:"+y);
+        document.write("<br>");
+        document.write('通过 charAt(0)获取位置0的字符串： '+y.charAt(0)); //返回H
+        document.write("<br>");
+        document.write('通过 charCodeAt(0)获取位置0的字符的 Unicode码 ：'+y.charCodeAt(0));
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray">
+    <h3>示例 4 : 字符串拼接</h3>
+    concat用于进行字符串拼接
+    <hr/>
+    <br/>
+
+    <script>
+        var x = new String("Hello ");
+        var y = new String("Javascript ");
+        document.write( '字符串x的值: '+x);
+        document.write('<br>');
+        document.write( '字符串y的值: '+y);
+        document.write('<br>');
+        document.write( '通过函数concat()把x和y连接起来: ' + x.concat(y) );
+        document.write('<br>');
+        document.write( '通过函数concat()把y和x连接起来: ' + y.concat(x) );
+    </script>
+</div>
+<hr/>
+<br/>
+
+<br/>
+<hr/>
+<div style="background-color: lightgray">
+    <h3>示例 5 : 子字符串出现的位置</h3>
+    indexOf 返回子字符串第一次出现的位置<br/>
+    lastIndexOf 返回子字符串最后一次出现的位置
+    <hr/>
+    <br/>
+
+    <script>
+        var y = new String("Hello JavaScript");
+        document.write( '字符串y的值: '+y);
+        document.write('<br>');
+        document.write('通过 indexOf ("a")获取子字符"a" 第一次出现的位置 '+ y.indexOf("a"));
+        document.write('<br>');
+        document.write("通过 lastIndexOf (\"a\")获取子字符\"a\" 最后出现的位置" + y.lastIndexOf("a"));
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray">
+    <h3>示例 6 : 比较两段字符串是否相同</h3>
+    localeCompare 比较两段字符串是否相同，0即表示相同，非0表示不同
+    <hr/>
+    <br/>
+
+    <script>
+        var x = new String("Hello");
+        var y = new String("Hello");
+        var z = new String("aloha");
+        document.write( '字符串x的值: '+x);
+        document.write('<br>');
+        document.write( '字符串y的值: '+y);
+        document.write('<br>');
+        document.write( '字符串z的值: '+z);
+        document.write('<br>');
+        document.write('<hr>');
+
+        document.write('通过 localeCompare()判断 x和y是否相等 '+x.localeCompare(y));
+        document.write('<br>');
+        document.write('通过 localeCompare()判断 x和z是否相等 '+x.localeCompare(z));
+        document.write('<br>');
+
+        document.write('<hr>');
+        document.write('0 表示相等<br>');
+        document.write('1 表示字母顺序靠后<br>');
+        document.write('-1 表示字母顺序靠前<br>');
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray">
+    <h3>示例 7: 截取一段子字符串</h3>
+    substring 截取一段子字符串 <br/>
+    注： 第二个参数，取不到
+
+    <hr/>
+    <br/>
+
+    <script>
+        var x = new String("Hello JavaScript");
+        document.write( '字符串x的值: '+x);
+        document.write('<br>');
+        document.write('x.substring (0,3) 获取位0到3的字符串： '+x.substring (0,3) );
+        document.write('<br>');
+        document.write('左闭右开，取得到0，取不到3');
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray">
+    <h3>示例 8: 根据分隔符，把字符串转换为数组</h3>
+    split 根据分隔符，把字符串转换为数组。 <br/>
+    注： 第二个参数可选，表示返回数组的长度
+
+    <hr/>
+    <br/>
+
+    <script>
+        var x = new String("Hello This Is JavaScript");
+        document.write( '字符串x的值: '+x);
+        document.write('<br>');
+
+        var y = x.split(" ");
+        document.write('通过空格分隔split(" "),得到数组  '+y);
+        document.write("<br>");
+
+        var z= x.split(" ",2);
+        document.write('通过空格分隔split(" ",2),得到数组，并且只保留前两个'+z);
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray">
+    <h3>示例 9: 替换子字符串</h3>
+    replace(search,replacement)<br/>
+    找到满足条件的子字符串search，替换为replacement <br/>
+
+    注: 默认情况下只替换找到的第一个子字符串，如果要所有都替换，需要写成：
+
+    <hr/>
+    <br/>
+
+    <script>
+        function p(s){
+            document.write(s);
+            document.write("<br>");
+        }
+        var x = new String("Hello JavaScript");
+        p('这个是原字符串: '+x);
+
+        var y = x.replace("a","o");
+        p('只替换第一个 a:  '+y);
+
+
+        var regS = new RegExp("a","g");
+        var z = x.replace(regS, "o");
+        p('替换掉所有的 a:  '+z);
+
+        var d =x.replaceAll("a", "9");
+        p(d);
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray">
+    <h3>示例 10: 返回基本类型</h3>
+    需要注意的是，所有返回字符串类型的方法，返回的都是基本类型的String<br/>
+
+    <hr/>
+    <br/>
+
+    <script>
+        function p(s){
+            document.write(s);
+            document.write("<br>");
+        }
+
+        var x = new String("Hello JavaScript");
+        var temp = x.charAt(0);
+        p('charAt返回的值'+temp);
+        p('其类型是'+ typeof temp );
+        document.write("<hr>");
+
+        var temp = x.concat("!!!");
+        p('concat返回的值'+temp);
+        p('其类型是'+ typeof temp );
+        document.write("<hr>");
+
+        var temp = x.substring(0,5);
+        p('substring返回的值'+temp);
+        p('其类型是'+ typeof temp );
+
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray">
+    <h3>示例 11: 练习</h3>
+    <hr/>
+    <h3>字符串替代工具</h3>
+    <table>
+        <tr>
+            <td>
+                源字符串：
+            </td>
+            <td>
+                <input id="str1" type="text" placeholder="example">
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                查询：
+            </td>
+
+            <td>
+                <input id="str2" type="text" placeholder="a">
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                替换为：
+            </td>
+
+            <td>
+                <input id="str3" type="text" placeholder="e">
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                替换结果：
+            </td>
+
+            <td>
+                <input id="res" type="text" placeholder="">
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+            </td>
+            <td>
+                <input type="button" value="替换" onclick="replacement()">
+            </td>
+        </tr>
+
+
+    </table>
+
+    <hr/>
+    <br/>
+
+    <script>
+        function replacement(){
+            let input_str = document.getElementById("str1").value;
+            let search = document.getElementById("str2").value;
+            let replace_str = document.getElementById("str3").value;
+            var regS = new RegExp(search, 'g');
+            let res = input_str.replace(regS, replace_str);
+
+            // let res = input_str.replaceAll(search, replace_str);
+            // let output = new  String(res)
+            document.getElementById("res").value = res;
+        }
+
+
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+
+
+
+
+
 
 </body>
 </html>
