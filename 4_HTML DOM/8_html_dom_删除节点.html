@@ -5,6 +5,122 @@
     <title>Title</title>
 </head>
 <body>
+<h3>html 删除节点</h3>
+<h4 style="white-space: pre-wrap; border: black 1px solid;width: 500px;">
+    removeChild	            删除元素节点
+    removeAttribute	        删除属性节点
+    removeChild	            删除文本节点
+</h4>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 1 : 删除元素节点</h3>
+    要删除某个元素节点有两步<br/>
+    <h5 style="white-space: pre-wrap;">
+        第一：先获取该元素的父节点
+        第二：通过父节点，调用removeChild 删除该节点
+    </h5>
+    <hr/>
+    <br/>
+    <div id="parentDiv">
+        <div id="div1">安全的div</div>
+        <div id="div2">即将被删除的div</div>
+    </div>
+
+    <button onclick="removeDiv()">删除第二个div</button>
+
+    <script>
+        function removeDiv(){
+            var pareDiv =  document.getElementById('parentDiv');
+            var div2 =document.getElementById('div2');
+            pareDiv.removeChild(div2);
+        }
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 2 : 删除属性节点</h3>
+    要删除某个属性节点有两步<br/>
+    <h5 style="white-space: pre-wrap;">
+        第一：先获取该元素节点
+        第二：元素节点，调用removeAttribute删除指定属性节点
+    </h5>
+    <hr/>
+    <br/>
+    <a id="link" href="http://12306.com">http://12306.com</a>
+
+    <br>
+    <button onclick="removeHref()">删除超链的href属性</button>
+
+    <script>
+        function removeHref(){
+            var link =document.getElementById('link');
+            link.removeAttribute('href');
+        }
+
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 3 : 节点名称</h3>
+    删除文本节点<br/>
+    <h5 style="white-space: pre-wrap;">如本例：:
+        1. 通过childNodes[0] 获取文本节点
+        注:children[0] 只能获取第一个子元素节点，不能获取文本节点
+        2. 通过removeChild删除该文本节点
+    </h5>
+    但是这种方式比较麻烦，一般都是直接通过innerHTML设置为空即可。
+    注: 通过innerHTML=""的方式，同样会导致文本子节点被删除。
+    <hr/>
+    <br/>
+    <style>
+        button{
+            display:block;
+        }
+    </style>
+
+    <div id="parentDiv1">
+        这里是文本
+    </div>
+
+    <button onclick="removeDiv1()">通过removechild删除div下的文本节点</button>
+    <button onclick="removeDiv2()">通过innerHTML让内容置空</button>
+    <button onclick="recover()">恢复内容</button>
+    <script>
+        function removeDiv1(){
+            var parentDiv = document.getElementById("parentDiv1");
+            var textNode = parentDiv.childNodes[0];
+            parentDiv.removeChild(textNode);
+        }
+        function removeDiv2(){
+            var parentDiv = document.getElementById("parentDiv1");
+            parentDiv.innerHTML="";
+        }
+
+
+        function recover(){
+            var parentDiv = document.getElementById("parentDiv1");
+            parentDiv.innerHTML="这里是文本 ";
+        }
+    </script>
+
+</div>
+<hr/>
+<br/>
+
+
 
 </body>
 </html>

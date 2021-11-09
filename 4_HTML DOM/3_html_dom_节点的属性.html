@@ -6,5 +6,281 @@
 </head>
 <body>
 
+<h3>html dom节点的属性</h3>
+<h4 style="white-space: pre-wrap; border: black 1px solid;width: 500px;">
+    nodeName            节点名称
+    <hr/>
+    nodeValue            节点值
+    <hr/>
+    nodeType              节点类型
+    <hr/>
+    innerHTML             元素的文本内容
+    <hr/>
+    id                    元素上的属性
+    value
+    className
+</h4>
+
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 1 : 节点名称</h3>
+    nodeName 表示一个节点的名字<br/>
+    <h5 style="white-space: pre-wrap;">如本例：:
+        document.nodeName 文档的节点名，是 固定的#document
+        div1.nodeName 元素的节点名，是对应的标签名 div
+        div1.attributes[0].nodeName 属性的节点名，是对应的属性名 id
+        div1.childNodes[0].nodeName 内容的节点名，是固定的 #text
+    </h5>
+    <hr/>
+    <br/>
+    <div id="d1">hello html dom</div>
+
+    <script>
+        var div1 = document.getElementById("d1");
+        function p(s){
+            document.write(s);
+            document.write("<br>");
+        }
+        p("document的节点名称:"+document.nodeName);
+        p("div元素节点的节点名称:"+div1.nodeName);
+        p("div下属性节点的节点名称:"+div1.attributes[0].nodeName);
+        p("div下内容节点的节点名称:"+div1.childNodes[0].nodeName);
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 2 : 节点值</h3>
+    nodeValue表示一个节点的值<br/>
+    <h5 style="white-space: pre-wrap;">如本例：:
+        document.nodeValue 文档的节点值，是 null
+        div1.nodeValue 元素的节点值，是null
+        div1.attributes[0].nodeValue 属性的节点值，是对应的属性值 d1
+        div1.childNodes[0].nodeValue 内容的节点值，是内容 即： #text
+    </h5>
+    <hr/>
+    <br/>
+    <div id="d2">hello html dom</div>
+
+    <script>
+        var div1 = document.getElementById("d2");
+        function p(s){
+            document.write(s);
+            document.write("<br>");
+        }
+        p("document是没有nodeValue的："+document.nodeValue);
+        p("元素节点是没有nodeValue的："+div1.nodeValue);
+        p("属性节点id的nodeValue："+div1.attributes[0].nodeValue);
+        p("内容节点的nodeValue："+div1.childNodes[0].nodeValue);
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 3 : 节点类型</h3>
+    nodeType表示一个节点的类型<br/>
+    不同的节点类型，对应的节点类型值是不一样的<br/>
+    <h5 style="white-space: pre-wrap;">如本例：:
+        document.nodeType 文档的节点类型，是 9
+        div1.nodeType 元素的节点类型，是 1
+        div1.attributes[0].nodeType 属性的节点类型，是 2
+        div1.childNodes[0].nodeType 内容的节点类型，是 3
+    </h5>
+    <hr/>
+    <br/>
+    <div id="d3">hello html dom</div>
+
+    <script>
+        var div1 = document.getElementById("d3");
+        function p(s){
+            document.write(s);
+            document.write("<br>");
+        }
+        p("document的nodeType是："+document.nodeType);
+        p("元素节点的nodeType是："+div1.nodeType);
+        p("属性节点的nodeType是："+div1.attributes[0].nodeType);
+        p("内容节点的nodeType是："+div1.childNodes[0].nodeType);
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 4 : 元素的文本内容</h3>
+    修改与获取内容的值可以通过 childNodes[0].nodeValue进行<br/>
+    还有个简便办法就是通过innerHTML进行。 效果是一样的。<br/>
+
+    <hr/>
+    <br/>
+    <div id="d4">hello html dom</div>
+    <button onclick="changeDiv1()">通过内容节点方式改变div的内容</button>
+    <button onclick="changeDiv2()">通过innerHTML改变div的内容</button>
+
+    <script>
+         function changeDiv1(){
+             document.getElementById('d4').childNodes[0].nodeValue = "通过childNode[0].value改变内容";
+         }
+         function changeDiv2(){
+             document.getElementById('d4').innerHTML = '通过innerHtml改变内容';
+         }
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 5 : 元素上的属性</h3>
+    元素上的属性，比如id,value 可以通过 . 直接访问<br/>
+    如果是自定义属性，那么可以通过如下两种方式来获取: <br/>
+    getAttribute("test")<br/>
+    attributes["test"].nodeValue
+
+    <hr/>
+    <br/>
+    <div id="d5">hello html dom</div>
+    <input id="input1" class="class1 class2" test="t1" value="这是一个输入框">
+    <br>
+    <button onclick="get()">获取input的属性</button>
+
+    <div style="height:30px"></div>
+
+    <script>
+
+        function  get(){
+            var input1 = document.getElementById('input1');
+            var s = "id="+ input1.id + "<br>";
+
+            s += "value = "+input1.value + "<br>";
+
+            s += 'class=' + input1.className + "<br>";
+
+            s += 'test= '+ input1.getAttribute('test') + "<br>";
+            s += 'tes = '+ input1.attributes['test'].nodeValue + '<br>';
+
+            document.getElementById('d5').innerHTML = s;
+        }
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>练习1 : 练习-验证账号是否已经存在</h3>
+
+    <hr/>
+    <br/>
+    <input type="text" id="account">
+    <button onclick="check()">check account </button>
+    <span id="res" style="color: red; display: none;">a</span>
+    <script>
+        function check(){
+            let account  = document.getElementById('account').value;
+            if (account[0] == "a" || account[0]=='A'){
+                document.getElementById('res').style.color = 'red';
+                document.getElementById('res').style.display = 'inline-block';
+                document.getElementById('res').childNodes[0].nodeValue = '账号已经存在';
+            }else{
+                document.getElementById('res').style.color = 'green';
+                document.getElementById('res').style.display = 'inline-block';
+                document.getElementById('res').childNodes[0].nodeValue = '账号可以使用';
+            }
+        }
+    </script>
+
+</div>
+<hr/>
+<br/>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>练习2 : 练习-切换不同的图片</h3>
+    <img src="imgs/1.JPG" style="width: 300px; height: auto;" id="p1"><br/>
+<!--    <img src="imgs/2.JPG" style="width: 300px; height: auto; display: none;" id="p2"><br/>-->
+
+    <input type="button" value="显示图片1" onclick="f1()"><br>
+    <input type="button" value="显示图片2" onclick="f2()"><br>
+    <hr/>
+    <br/>
+    <script>
+        function f1(){
+           document.getElementById('p1').src = "imgs/1.JPG";
+            // document.getElementById('p2').style.display= 'none';
+        }
+        function f2(){
+            document.getElementById('p1').src = "imgs/2.JPG";
+            // document.getElementById('p1').style.display= 'none';
+            // document.getElementById('p2').style.display= 'block';
+        }
+    </script>
+
+</div>
+<hr/>
+<br/>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>练习3 : 练习-判断输入框里的值，是否是整数(浮点数也不行) </h3>
+    <input type="text" id="s1">
+    <input type="button" value="是否为整数" onclick="f3()">
+    <span id="s2" style="display: none;">check integer</span>
+
+    <hr/>
+    <br/>
+    <script>
+        function f3(){
+            let s1 = document.getElementById('s1').value;
+            n = Number(s1);
+            if (isNaN(n)){
+                document.getElementById("s2").style.display = 'inline-block';
+                document.getElementById("s2").innerHTML = s1 +"是" + n;
+            }else if (n==0){
+                document.getElementById("s2").style.display = 'inline-block';
+                document.getElementById("s2").innerHTML =  s1 +"是" + '整数';
+            }else if(Math.abs(n)<1){
+                document.getElementById("s2").style.display = 'inline-block';
+                document.getElementById("s2").innerHTML = "不是整数";
+            }else if (n/Math.round(n) == 1){
+                document.getElementById("s2").style.display = 'inline-block';
+                document.getElementById("s2").innerHTML = "是整数";
+            }else{
+                document.getElementById("s2").style.display = 'inline-block';
+                document.getElementById("s2").innerHTML = "不是整数";
+            }
+
+        }
+    </script>
+
+</div>
+<hr/>
+<br/>
+
+
 </body>
 </html>

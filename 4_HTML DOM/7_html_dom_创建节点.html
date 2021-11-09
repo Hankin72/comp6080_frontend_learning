@@ -5,6 +5,162 @@
     <title>Title</title>
 </head>
 <body>
+<h3>html dom 创建节点</h3>
+<h4 style="white-space: pre-wrap; border: black 1px solid;width: 500px;">
+    createElement            创建元素节点
+    <hr/>
+    createTextNode            创建文本节点
+    <hr/>
+    createAttribute            创建属性节点
+    <hr/>
+
+</h4>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 1 : 创建元素节点</h3>
+    通过createElement 创建一个新的元素节点<br/>
+    接着把该元素节点，通过appendChild加入到另一个元素节点div1中
+
+    <hr/>
+    <br/>
+    <div id="d">hello html dom</div>
+    <script>
+        function add(){
+            var hr = document.createElement('hr');
+            var div1 = document.getElementById('d');
+            div1.appendChild(hr);
+        }
+    </script>
+    <button onclick="add()">在div中追加一个hr元素</button>
+</div>
+<hr/>
+<br/>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 2 : 创建文本节点</h3>
+    首先创建一个元素节点p (p是p标签，不是随便命名的变量名)<br/>
+    接着通过createTextNode创建一个内容节点text <br/>
+    把text加入到p<br/>
+    再把p加入到div
+
+    <hr/>
+    <br/>
+    <div id="d1">hello html dom</div>
+    <script>
+        function add1(){
+            var p = document.createElement("p");
+            var text = document.createTextNode("这是通过dom创建出来的<p>");
+            p.appendChild(text);
+
+            var div1 = document.getElementById('d1');
+
+            div1.appendChild(p);
+        }
+    </script>
+    <button onclick="add1()">在div中追加一个p元素</button>
+</div>
+<hr/>
+<br/>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 3 : 创建属性节点</h3>
+    首先创建一个元素节点a <br/>
+    接着创建一个内容节点content <br/>
+    把content加入到a  <br/>
+    然后通过createAttribute创建一个属性节点 href <br/>
+    设置href的值为http:12306.com  <br/>
+    通过setAttributeNode把该属性设置到元素节点a上  <br/>
+    最后把a加入到div
+
+
+    <hr/>
+    <br/>
+    <div id="d2">hello html dom</div>
+    <script>
+        function add2(){
+            var a = document.createElement("a");
+            var content = document.createTextNode("http://12306.com");
+
+            a.appendChild(content);
+
+            var href = document.createAttribute("href");
+            var traget = document.createAttribute("target");
+            href.nodeValue = "http://12306.com";
+            traget.nodeValue = '_blank';
+            a.setAttributeNode(href);
+            a.setAttributeNode(traget);
+
+            var div2 = document.getElementById('d2');
+            div2.appendChild(a);
+        }
+    </script>
+    <button onclick="add2()">在div中追加一个超链</button>
+</div>
+<hr/>
+<br/>
+
+
+
+<br/>
+<hr/>
+<style>
+    table{
+        width:800px;
+        text-align: center;
+        margin: auto;
+        border-collapse: collapse;
+    }
+    td{
+        width:200px;
+        border-bottom-style:solid;
+        border-bottom-color: #f5f5f5;
+        padding: 10px 0px;
+    }
+</style>
+<div style="background-color: lightgray;  border: 1px black solid;" id="test4">
+    <h3>示例 4: 练习-动态创建一个表 </h3>
+    <hr/>
+    <br/>
+
+    <script>
+        var t = new Array(5);
+        t[0] = new Array("id","名称","血量","伤害");
+        t[1]=new Array("1","gareen","340","58");
+        t[2]=new Array("2","teemo","320","76");
+        t[3]=new Array("3","annie","380","38");
+        t[4]=new Array("4","deadbrother","400","90");
+
+        var table =document.createElement('table');
+        document.getElementById('test4').appendChild(table);
+
+        // document.body.appendChild(table);
+        var tr = new Array();
+        var td = new Array();
+
+        for (let i=0; i<t.length; i++){
+            tr[i]=document.createElement('tr');
+            table.appendChild(tr[i]);
+            for (let j=0;j<t[0].length;j++){
+                var txt = document.createTextNode(t[i][j]);
+                td[j] = document.createElement('td');
+                tr[i].appendChild(td[j]);
+                td[j].appendChild(txt);
+            }
+        }
+    </script>
+
+</div>
+<hr/>
+<br/>
 
 </body>
 </html>

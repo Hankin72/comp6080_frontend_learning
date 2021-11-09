@@ -5,6 +5,203 @@
     <title>Title</title>
 </head>
 <body>
+<h3>节点关系</h3>
+<h4 style="white-space: pre-wrap; border: black 1px solid;width: 500px;">
+                       节点关系图
+    <hr/>
+    parentNode            父节点关系
+    <hr/>
+    previousSibling              同胞节点关系
+    nextSibling
+    <hr/>
+    childNodes             子节点关系
+    <hr/>
+    childNodes               childNodes和children的区别
+    children
+</h4>
+
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 1 : 节点关系图</h3>
+    假设html代码如实例中，那么各个元素节点的关系如下:<br/>
+    <h3 style="white-space: pre-wrap;">如本例：:
+        d1 d2 d3 的parentNode是parentDiv
+        parentDiv的firstNode是 d1
+        parentDiv的lastNode是d3
+        d2的previousSibling是d1
+        d2的nextSibling是d3
+        parentDiv的children是 d1 d2 d3
+    </h3>
+    <hr/>
+    <br/>
+
+</div>
+<hr/>
+<br/>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 2: 父节点关系</h3>
+    通过parentNode获取父节点。:<br/>
+    <h3 style="white-space: pre-wrap;">如本例：:
+        本例中从id=d1的div开始递归获取其父节点，分别获取如下父节点
+
+    </h3>
+    <hr/>
+    <br/>
+    <script>
+        var node=null;
+        function showParent(){
+            if(null==node){
+                node =document.getElementById('d1');
+            }
+            if (document == node){
+                alert("已是根节点:document");
+            }
+            else {
+                alert(node.parentNode);
+                node = node.parentNode;
+                showParent();
+            }
+        }
+    </script>
+    <div id="parentDiv">
+        父Div的内容
+        <div id="d1">第一个div</div>
+        <div id="d2">第二个div</div>
+        <div id="d3">第三个div</div>
+    </div>
+    <button onclick="showParent()">不断递归d1的父节点</button>
+
+</div>
+<hr/>
+<br/>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 3: 同胞节点关系</h3>
+    分别通过 previousSibling和nextSibling属性获取前一个，以及后一个同胞节点。<br/>
+    <h3 style="white-space: pre-wrap;">如本例：:
+        在本例中，首先获取d2元素节点
+            通过previousSibling获取前一个节点d1.
+            注意 d1和d2标签是紧挨着的，所以d2前一个节点是d1。
+            通过nextSibling 获取后一个节点#text.
+            注意 d2和d3不是紧挨着 标签之间有任何字符、空白、换行都会产生文本元素。 所以获取到的节点是#text.
+
+    </h3>
+    <hr/>
+    <br/>
+    <div id="parentDiv1">
+        父Div的内容
+        <div id="d11">第一个div</div><div id="d22">第二个div</div>
+        <div id="d33">第三个div</div>
+    </div>
+    <button onclick="showPre()">获取d2的前一个同胞</button>
+
+    <button onclick="showNext()">获取d2的后一个同胞</button>
+    <script>
+        function showPre(){
+            var d2 = document.getElementById("d22");
+            alert(d2.previousSibling.childNodes[0].nodeValue);
+        }
+       function showNext(){
+            var d2 = document.getElementById("d22");
+            alert(d2.nextSibling.nodeName);
+        }
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 4: 子节点关系</h3>
+    子节点关系有:<br/>
+    <h3 style="white-space: pre-wrap;">如本例：:
+        firstChild 第一个子节点
+        lastChild 最后一个子节点
+        childNodes 所有子节点
+
+    </h3>
+    注:firstChild 如果父节点的开始标签和第一个元素的开始标签之间有文本、空格、换行，那么firstChild第一个子节点将会是文本节点，不会是第一个元素节点 <br/>
+    注:lastChild 和firstChild同理。 在本例中故意让第3个元素的结束标签与div的结束标签紧挨着，所以最后一个子节点就是第三个标签 <br/>
+    注: 子元素个数一共是6个。 因为parentDiv的子节点是 文本节点接着一个元素节点，重复3次。 所以一共是6个。 <br/>
+    <hr/>
+    <br/>
+
+    <div id="parentDiv2">
+        父Div的内容
+        <div id="d111">第一个div</div>
+        <div id="d222">第二个div</div>
+        <div id="d333">第三个div</div></div>
+
+    <button onclick="showfirst()">第一个子节点</button>
+    <button onclick="showlast()">最后一个子节点</button>
+    <button onclick="showall()">所有子节点数量</button>
+    <script>
+        function showfirst(){
+            var div = document.getElementById("parentDiv2");
+            alert(div.firstChild.nodeName);
+        }
+        function showlast(){
+            var div = document.getElementById("parentDiv2");
+            alert(div.lastChild.innerHTML);
+        }
+        function showall(){
+            var div = document.getElementById("parentDiv2");
+            alert(div.childNodes.length);
+        }
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 5: childNodes和children的区别</h3>
+    childNodes和children都可以获取一个元素节点的子节点。<br/>
+    <h3 style="white-space: pre-wrap;">如本例：:
+        childNodes 会包含文本节点
+        children 会排除文本节点
+
+    </h3>
+    <hr/>
+    <br/>
+    <div id="parentDiv4">
+        父Div的内容
+        <div id="d14">第一个div</div>
+        <div id="d24">第二个div</div>
+        <div id="d34">第三个div</div>
+    </div>
+    <button onclick="showNumber1()">通过childNodes获取子节点总数</button>
+    <button onclick="showNumber2()">通过children()获取子节点总数</button>
+
+
+    <script>
+        function showNumber1(){
+            alert(document.getElementById("parentDiv4").childNodes.length);
+        }
+
+        function showNumber2(){
+            alert(document.getElementById("parentDiv4").children.length);
+        }
+    </script>
+</div>
+<hr/>
+<br/>
+
 
 </body>
 </html>

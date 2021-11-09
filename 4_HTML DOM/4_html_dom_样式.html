@@ -5,6 +5,141 @@
     <title>Title</title>
 </head>
 <body>
+<h3 style="white-space: pre-wrap;background-color: lightgray;  border: 1px black solid;">
+   一个元素节点的 style 属性即对应的 css
+</h3>
 
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 1 : 隐藏和显示</h3>
+    通过给元素的style.display 赋值，改变显示还是隐藏 <br/>
+
+    <hr/>
+    <br/>
+    <button onclick="hide()">隐藏div</button>
+
+    <button onclick="show()">显示div</button>
+    <div id="d">
+
+        这是一个div
+
+    </div>
+
+    <script>
+        function hide(){
+            var d = document.getElementById("d");
+            d.style.display="none";
+        }
+        function show(){
+            var d = document.getElementById("d");
+            d.style.display="block";
+        }
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 2: 改变背景色</h3>
+    通过给元素的style.backgroundColor 赋值，修改样式 <br/>
+    你也许注意到了style.backgroundColor 这里的backgroundColor和css中的背景色background-color 是有所不同的 <br/>
+    换句话说，通过DOM的style去修改样式，需要重新记忆另一套样式名称，这是很累赘的事情。<br/>
+    最好能够通过CSS的属性名，直接就进行修改了。比如通过这样的方式：
+
+
+    <hr/>
+    <br/>
+    <div id="d1" style="background-color:pink">Hello HTML DOM</div>
+    <button onclick="change()">改变div的背景色</button>
+
+    <script>
+        function change(){
+        var d1 =document.getElementById('d1');
+        d1.style.backgroundColor = 'green';
+        }
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>练习 3: 练习-表格斑马线</h3>
+    <hr/>
+    <br/>
+    <style>
+        table{
+            width:800px;
+            text-align: center;
+            margin: auto;
+            border-collapse: collapse;
+        }
+        td{
+            width:200px;
+            border-bottom-style:solid;
+            border-bottom-color: #f5f5f5;
+            padding: 10px 0px;
+        }
+        th{
+            width:200px;
+            border-bottom-style:solid;
+            border-bottom-color: lightgray;
+            padding: 10px 0px;
+        }
+    </style>
+    <table>
+        <tr>
+            <th>id</td>
+            <th>名称</td>
+            <th>血量</td>
+            <th>伤害</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>gareen</td>
+            <td>340</td>
+            <td>58</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>teemo</td>
+            <td>320</td>
+            <td>76</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>annie</td>
+            <td>380</td>
+            <td>38</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>deadbrother</td>
+            <td>400</td>
+            <td>90</td>
+        </tr>
+    </table>
+    <script>
+        var tr = document.getElementsByTagName('tr');
+        for (let i=1;i<tr.length; i+=2){
+            tr[i].style.backgroundColor = "red";
+        }
+    </script>
+
+
+
+
+
+</div>
+<hr/>
+<br/>
 </body>
 </html>

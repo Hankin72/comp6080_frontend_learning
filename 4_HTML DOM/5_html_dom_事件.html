@@ -5,6 +5,571 @@
     <title>Title</title>
 </head>
 <body>
+<h2>DOM的事件有很多，下表把工作中常用的事件列出来，并进行讲解</h2>
+<h4 style="white-space: pre-wrap; border: black 1px solid;width: 500px;">
+    onfocus                焦点事件
+    onblur
+    <hr/>
+    onmousedown              鼠标事件
+    onmouseup
+    onmousemove
+    onmouseout
+    <hr/>
+    onkeydown                    键盘事件
+    onkeypress
+    onkeyup
+    <hr/>
+    onclick                      点击事件
+    ondblclick
+    <hr/>
+    onchange                      变化事件
+    <hr/>
+    onsubmit                    提交事件
+    <hr/>
+    onload                      加载事件
+    <hr/>
+    this                       当前事件
+    <hr/>
+    return false                 阻止事件的发生
+    <hr/>
 
+</h4>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 1 : 焦点事件</h3>
+    焦点相关的事件，分别有获取焦点和失去焦点<br/>
+    <ul>
+        <li>当组件 获取焦点 的时候，会触发 onfocus 事件</li>
+        <li>当组件 失去焦点 的时候， 会触发 onblur 事件</li>
+    </ul>
+
+    <hr/>
+    <br/>
+    <input type="text" onfocus="f()" onblur="b()" id="input1" placeholder="输入框1">
+    <br>
+    <br>
+    <input type="text" id="input2" placeHolder="输入框2">
+    <br>
+    <br>
+    <div id="message"></div>
+
+
+    <script>
+        function f(){
+            document.getElementById('message').innerHTML = '输入框1获取焦点';
+        }
+        function b(){
+            document.getElementById("message").innerHTML="输入框1丢失了焦点";
+        }
+
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 2 : 鼠标事件</h3>
+    鼠标事件，由鼠标按下，鼠标弹起，鼠标经过，鼠标进入，鼠标退出几个事件组成<br/>
+    <ul>
+        <li>当在组件上鼠标按下的时候，会触发onmousedown事件</li>
+        <li>当在组件上鼠标弹起的时候，会触发onmouseup事件</li>
+        <br/>
+        <li>当在组件上鼠标经过的时候，会触发onmousemove事件</li>
+        <li>当在组件上鼠标进入的时候，会触发onmouseover事件</li>
+        <li>当在组件上鼠标退出的时候，会触发onmouseout事件</li>
+        注: 当鼠标进入一个组件的时候，onmousemove和onmouseover都会被触发，<br>
+        区别在于无论鼠标在组件上如何移动，onmouseover只会触发一次，onmousemove每次移动都会触发
+    </ul>
+
+    <hr/>
+    <br/>
+    <input type="button" onmousedown="down()" onmouseup="up()" value="用于演示按下和弹起">
+    <br>
+    <br>
+    <input type="button" onmousemove="move()" value="显示鼠标经过">
+    <br>
+    <br>
+    <input type="button" onmouseover="over()" value="鼠标进入演示">
+    <br>
+    <br>
+    <input type="button" onmouseout="out()" value="演示鼠标退出来">
+    <br>
+    <br>
+    <div id="message1"></div>
+    <script>
+        var num = 0;
+        function down(){
+            document.getElementById('message1').innerHTML = "按下了鼠标";
+        }
+        function up(){
+            document.getElementById("message1").innerHTML="弹起了鼠标";
+        }
+
+        function move(){
+            document.getElementById("message1").innerHTML="鼠标经过次数:"+(++num);
+        }
+        function over(){
+            document.getElementById("message1").innerHTML="鼠标进入次数:"+(++num);
+        }
+        function out(){
+            document.getElementById("message1").innerHTML="鼠标退出";
+            num = 0;
+        }
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 3 : 键盘事件</h3>
+    键盘事件，由键盘按下keydown，键盘按下keypress,键盘弹起几个事件组成<br/>
+    <ul>
+        <li>当在组件上键盘按下的时候，会触发onkeydown事件</li>
+        <li>当在组件上键盘按下的时候，也会触发onkeypress事件</li>
+        <br/>
+        <li>当在组件上键盘弹起的时候，会触发onkeyup事件</li>
+    </ul>
+    注: onkeypress 是当按下并弹起的组合动作，这个说法是错误的 <br/>
+    都是用于表示键盘按下，onkeydown和onkeypress的区别在什么呢？<br/>
+    <ul>
+        onkeydown
+        <li>可以获取所有键，除了打印键Prts</li>
+        <li>可以获取用户是否点击了修饰键 (ctrl,shift,alt)</li>
+        <li>不能判断输入的是大写还是小写</li>
+        onkeypress
+        <li>只能获取字符键</li>
+        <li>不能获取用户是否点击了修饰键 (ctrl,shift,alt)</li>
+        <li>可以判断输入的是大写还是小写</li>
+    </ul>
+    但是！ 在不同的浏览器上，以上规则是不成立的。说这些都没有卵用，你无法控制用户到底使用哪种浏览器。 所以，只要记得keydown和keypress都表示点下了键。。。即可
+    <hr/>
+    <br/>
+
+    “记得要先用鼠标选中该组件，然后敲击键盘”
+    <br/>
+    <input type="button" onkeydown="keydown(event)" value="用于演示按下keydown">
+    <br>
+    <br>
+    <input type="button" onkeypress="press(event)" value="演示按下keypress">
+    <br>
+    <br>
+    <input type="button" onkeyup="up()" value="用于演示弹起">
+    <br>
+    <br>
+    <div id="msg"></div>
+    <script>
+        var number = 0
+        function keydown(e){
+            var text = '按下了键'+ e.keyCode;
+            if (e.shiftKey==1){
+                text += " 并且按下了shift键";
+            }
+            document.getElementById("msg").innerHTML=text ;
+        }
+        function up(){
+            document.getElementById('msg').innerHTML="弹起了键盘";
+        }
+
+        function press(e){
+            var text = "按下了键" + e.keyCode;
+            if(e.shiftKey==1)
+                text += " 并且按下了shift键";
+            document.getElementById("msg").innerHTML=text ;
+        }
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 4 : 点击事件</h3>
+    点击事件，由单击，双击按两个事件组成<br/>
+    <ul>
+        <li>当在组件上单击的时候，会触发onclick事件</li>
+        <li>当在组件上双击的时候，会触发ondblclick事件</li>
+
+    </ul>
+    注1：在组件上，按下空格或则回车键也可以造成单击的效果，但是却不能造成双击的效果<br/>
+    注2: 自定义函数不要使用click()，这是保留函数名。<br/>
+
+    <hr/>
+    <br/>
+    <br/>
+    <input type="button" onclick="singleClick()" ondblclick="doubleClick()"  value="用于演示单击和双击" >
+
+    <br>
+    <br>
+    <div id="message3"></div>
+    <script>
+      function singleClick(){
+          document.getElementById("message3").innerHTML="单击按钮";
+      }
+      function doubleClick(){
+          document.getElementById("message3").innerHTML="双击按钮";
+      }
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 5 : 变化事件</h3>
+    当组件的值发生变化的时候，会触发onchange事件<br/>
+    注：对于输入框而言，只有在失去焦点的时候，才会触发onchange，所以需要点击一下"按钮" 造成输入框失去焦点
+    <hr/>
+    <br/>
+
+    <br/>
+    <input type="text" id="t1" onchange="change()"  value="" >
+    <br>
+    <br>
+    <input type="button" value="令输入框失去焦点的按钮" >
+    <br>
+    <br>
+    <div id="message4"></div>
+    <script>
+        function change(){
+            var msg = document.getElementById('message4');
+            var t1 = document.getElementById('t1');
+            msg.innerHTML = '输入框的值变了： '+t1.value;
+        }
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 6: 提交事件</h3>
+    可以在form元素上，监听提交事件<br/>
+    当form元素@提交的时候，会触发onsubmit事件<br/>
+
+    <hr/>
+    <br/>
+    <form action="xxxx" onsubmit="login()">
+        account: <input type="text" name="name"><br/>
+        password: <input type="password" name="password"><br/>
+        <input type="submit" value="login">
+    </form>
+    <script>
+        function login(){
+            alert("submit the form");
+        }
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 7: 加载事件</h3>
+    当整个文档加载成功，或者一个图片加载成功，会触发加载事件<br/>
+    当body元素或者img@加载的时候，会触发onload事件<br/>
+
+    <hr/>
+    <br/>
+
+    <script>
+        function load_div(){
+            document.getElementById("m1").innerHTML="文档加载成功";
+        }
+        function loadimg(){
+            document.getElementById("m2").innerHTML="图片加载成功";
+        }
+    </script>
+
+    <div onload="load_div()">
+        <div id="m1">asdasd</div>
+        <div id="m2"></div>
+    </div>
+    <img onload="loadimg()" src="imgs/2.JPG" style="width: 200px;" >
+</div>
+<hr/>
+<br/>
+
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 8: 当前组件</h3>
+    this表示触发事件的组件，可以在调用函数的时候，作为参数传进去<br/>
+
+    <hr/>
+    <br/>
+    <input type="button" onclick="singleClick(this)" value="演示this的----按钮1" >
+    <input type="button" onclick="singleClick(this)" value="演示this的----按钮2" >
+    <br>
+    <br>
+    <div id="message5"></div>
+
+    <script>
+        function singleClick(button){
+            var s ="被点击的按钮的文本是： "+ button.value;
+            document.getElementById('message5').innerHTML = s;
+        }
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 9: 阻止事件的发生</h3>
+    比如在提交一个表单的时候，如果用户名为空，弹出提示，并阻止原本的提交<br/>
+    <ul>
+        <li>1. 在调用函数的时候，增加一个return</li>
+        <li>2. 在函数中，如果发现用户名为空，则返回false</li>
+        <li>3. 当onSubmit得到的返回值是false的时候，表单的提交功能就被取消了</li>
+    </ul>
+
+    <hr/>
+    <br/>
+   <form method="post" action="xxx" onsubmit="return login_()">
+       account: <input type="text" id="username" name="username"><br/>
+       password: <input type="password" id="password1" name="password1"><br/>
+       <input type="submit" value="login">
+   </form>
+    <script>
+        function login_(){
+            var username = document.getElementById('username');
+            if(username.value.length ==0){
+                alert("用户名不能为空");
+                return false;
+            }
+            var passw = document.getElementById('password1');
+            if (passw.value.length ==0){
+                alert("密码不能为空");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>练习 1: 练习-下拉菜单</h3>
+    改进练习-下拉菜单风格，使得当鼠标移动到不同菜单的时候，显示不同的下拉菜单<br/>
+
+    <hr/>
+    <br/>
+    <div style="margin-left: 4px;">
+        <span onmouseover="f3(this)">武器</span>
+        <span onmouseover="f3(this)">护甲</span>
+        <span onmouseover="f3(this)">英雄</span><br>
+    </div>
+    <table style="display:table; border-collapse: collapse" border="1">
+        <tr><td onmouseover="f1(this)" onmouseout="f2(this)">大剑</td></tr>
+        <tr><td onmouseover="f1(this)" onmouseout="f2(this)">屠龙</td></tr>
+        <tr><td onmouseover="f1(this)" onmouseout="f2(this)">倚天</td></tr>
+        <tr><td onmouseover="f1(this)" onmouseout="f2(this)">七孔砖</td></tr>
+    </table>
+    <table style="display:none;margin-left:35px; border-collapse: collapse" border="1">
+        <tr><td onmouseover="f1(this)" onmouseout="f2(this)">胸甲</td></tr>
+        <tr><td onmouseover="f1(this)" onmouseout="f2(this)">护腕</td></tr>
+        <tr><td onmouseover="f1(this)" onmouseout="f2(this)">头盔</td></tr>
+        <tr><td onmouseover="f1(this)" onmouseout="f2(this)">鞋子</td></tr>
+    </table>
+    <table style="display:none;margin-left:70px; border-collapse: collapse" border="1">
+        <tr><td onmouseover="f1(this)" onmouseout="f2(this)">盖伦</td></tr>
+        <tr><td onmouseover="f1(this)" onmouseout="f2(this)">提莫</td></tr>
+        <tr><td onmouseover="f1(this)" onmouseout="f2(this)">安妮</td></tr>
+        <tr><td onmouseover="f1(this)" onmouseout="f2(this)">死歌</td></tr>
+    </table>
+    <script>
+        function f1(td){
+            td.style.backgroundColor="lightblue";
+        }
+        function f2(td)
+        {
+            td.style.backgroundColor="white";
+        }
+        function f3(sn){
+            var t = document.getElementsByTagName('table');
+            var s = document.getElementsByTagName('span');
+            for (var i=0; i< s.length; i++){
+                if (s[i] == sn){
+                    t[i].style.display = 'table';
+                }else{
+                    t[i].style.display = 'none';
+                }
+            }
+        }
+    </script>
+<br/>
+    <br/>
+</div>
+<hr/>
+<br/>
+
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>练习 2 : 练习-验证账号是否已经存在</h3>
+    改进练习-验证账号是否已经存在，把需要点击按钮进行验证去掉，当用户输入用户名的时候，就自动进行验证<br/>
+    <hr/>
+    <br/>
+    <input id="in" type="text" onkeyup="login_check()" placeholder="enter in usernmae"><span id="red"></span>
+    <br/>
+    <br/>
+    <script>
+        function login_check(){
+            var value1 = document.getElementById('in').value;
+            if (value1[0] =='a' || value1[0]=='A'){
+                document.getElementById("red").innerHTML="账号已存在";
+                document.getElementById("red").style.color="red";
+                document.getElementById("red").style.display="block";
+            }else if (value1[0]==null){
+                document.getElementById("red").style.display="none";
+            }else{
+                document.getElementById("red").innerHTML="账号格式正确";
+                document.getElementById("red").style.color="green";
+                document.getElementById("red").style.display="block";
+            }
+        }
+    </script>
+
+
+
+</div>
+<hr/>
+<br/>
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>练习 3: 练习-选中所有的checkbox</h3>
+    有多个复选框<br/>
+    点击选中所有，所有的复选框都选中了<br/>
+    点击反向选择，反选复选框<br/>
+
+    <hr/>
+    <br/>
+    <input type="checkbox" id="c" onchange="f11()"> 全选<br>
+    <input type="checkbox" name="c1"> tokyo hot<br>
+    <input type="checkbox" name="c1"> dota<br>
+    <input type="checkbox" name="c1"> lol<br>
+    <input type="checkbox" name="c1"> wow<br>
+    <input type="checkbox" name="c1"> warcraft<br>
+    <input type="checkbox" name="c1"> diablo<br>
+    <button onclick="f22()">反选</button>
+
+    <script>
+        function f11(){
+            var c = document.getElementById('c').checked;
+            var c1 = document.getElementsByName('c1');
+            if (c){
+                for (let i=0; i<c1.length;i++){
+                    c1[i].checked = true;
+                }
+            }else {
+                for (let i = 0; i < c1.length; i++){
+                    c1[i].checked = false;
+                }
+            }
+        }
+        function f22(){
+            var c1=document.getElementsByName("c1"),i;
+            for(i=0;i<c1.length;i++)
+            {
+                c1[i].checked=!c1[i].checked;
+            }
+            document.getElementById("c").checked=false;
+        }
+    </script>
+
+
+</div>
+<hr/>
+<br/>
+
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>练习 3: 练习-选中所有的checkbox</h3>
+    有多个复选框<br/>
+    点击选中所有，所有的复选框都选中了<br/>
+    点击反向选择，反选复选框<br/>
+
+    <hr/>
+    <br/>
+    <style>
+        a{
+            font-size:12px;
+            font-weight:bold;
+            color:SteelBlue;
+            text-decoration: none;
+        }
+    </style>
+    <input type="checkbox" onclick="selectAll(this)" id="all" > 全选<br>
+    <input type="checkbox" > tokyo hot<br>
+    <input type="checkbox" > dota <br>
+    <input type="checkbox" > lol <br>
+    <input type="checkbox" > wow <br>
+    <input type="checkbox" > warcraft <br>
+    <input type="checkbox" > diablo <br>
+    <a href="#nowhere" onclick="reverse()">反选</a>
+
+    <script>
+        function selectAll(checkboxall){
+            var checkedall = checkboxall.checked;
+            var checkboxes = document.getElementsByTagName('input');
+            for (i in checkboxes){
+                checkboxes[i].checked = checkedall?"checked":"";
+            }
+        }
+        function reverse(){
+            var checkboxes = document.getElementsByTagName('input');
+            for (var i in checkboxes){
+                if (0==i){
+                    continue;
+                }
+                checkboxes[i].checked = checkboxes[i].checked?"":"checked";
+            }
+            document.getElementById("all").checked=false;
+        }
+
+    </script>
+
+
+</div>
+<hr/>
+<br/>
 </body>
 </html>
