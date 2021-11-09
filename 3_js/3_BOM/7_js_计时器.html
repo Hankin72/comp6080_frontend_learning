@@ -5,6 +5,147 @@
     <title>Title</title>
 </head>
 <body>
+<h3 style="white-space: pre-wrap;background-color: lightgray;  border: 1px black solid;">
+    BOM - JAVASCRIPT 计时器
+</h3>
+
+
+<h4 style="white-space: pre-wrap; border: black 1px solid;width: 500px;">
+    setTimeout       只执行一次
+    <hr/>
+    setInterval     不停地重复执行
+    <hr/>
+    clearInterval      终止重复执行
+    <hr/>
+    document.write()     不要在setInterval调用的函数中使用document.write();
+</h4>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 1 : 只执行一次</h3>
+    函数setTimeout(funcationname, 距离开始时间毫秒数)；<br/>
+    通过setTimeout在指定的毫秒时间之后，执行一次， 函数 functionname<br/>
+
+    (document.getElementById 获取id= time的div元素)
+    .innerHTML 修改该元素的内容
+    <hr/>
+    <br/>
+    <div id="time"></div>
+    <button onclick="showTimeIn3Seconds()">点击后3秒后显示当前时间，并且只显示一次</button>
+
+    <script>
+        function printTime(){
+            var d = new Date();
+            var h = d.getHours();
+            var m = d.getMinutes();
+            var s =d.getSeconds();
+            document.getElementById("time").innerHTML =h + ':'+m+":"+s;
+        }
+        function showTimeIn3Seconds(){
+            setTimeout(printTime, 3000);
+        }
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 2: 不停地重复执行</h3>
+    函数setInterval(funcationname, 重复执行的时间间隔的毫秒数)；<br/>
+    通过setInterval 重复执行同一个函数， 重复的时间间隔由第二参数指定<br/>
+
+    <hr/>
+    <br/>
+    <p>每隔1秒钟，打印当前时间</p>
+    <div id="time_"></div>
+<!--    <button onclick="showTimeIn3Seconds()">点击后3秒后显示当前时间，并且只显示一次</button>-->
+
+    <script>
+        function printTime(){
+            var d = new Date();
+            var h = d.getHours();
+            var m = d.getMinutes();
+            var s =d.getSeconds();
+            document.getElementById("time_").innerHTML =h + ':'+m+":"+s;
+        }
+        var t = setInterval(printTime, 1000);
+
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 3: 终止重复执行</h3>
+    通过clearInterval 终止一个不断重复的任务<br/>
+    本例中，当秒是5的倍数的时候，就终止执行<br/>
+
+    <hr/>
+    <br/>
+    <p>每隔1秒钟，打印当前时间</p>
+    <div id="time3"></div>
+    <!--    <button onclick="showTimeIn3Seconds()">点击后3秒后显示当前时间，并且只显示一次</button>-->
+
+    <script>
+        var t = setInterval(printTime, 1000);
+
+        function printTime(){
+            var d = new Date();
+            var h = d.getHours();
+            var m = d.getMinutes();
+            var s =d.getSeconds();
+            document.getElementById("time3").innerHTML =h + ':'+m+":"+s;
+            if (s%5===0){
+                clearInterval(t);
+            }
+        }
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 4: 不要在setInterval调用的函数中使用document.write();</h3>
+    注：部分浏览器，比如firefox有这个问题，其他浏览器没这个问题。<br/>
+    假设setInterval调用的函数是printTime, 在printTime中调用document.write();<br/>
+    只能看到一次打印时间的效果。<br/>
+    这是因为document.write，会创建一个新的文档，而新的文档里，只有打印出来的时间字符串，<br/>
+    并没有setInterval这些javascript调用，所以只会看到执行一次的效果。
+
+    <hr/>
+    <br/>
+    <p>每隔1秒钟，通过document.write打印当前时间</p>
+
+    <!--    <button onclick="showTimeIn3Seconds()">点击后3秒后显示当前时间，并且只显示一次</button>-->
+
+    <script>
+        function printTime4(){
+            var d = new Date();
+           document.write(d.getHours());
+           document.write(":");
+           document.write(d.getMinutes());
+           document.write(":");
+           document.write(d.getSeconds());
+           document.close();
+        }
+        var t = setInterval(printTime4, 1000);
+    </script>
+</div>
+<hr/>
+<br/>
+
 
 </body>
 </html>

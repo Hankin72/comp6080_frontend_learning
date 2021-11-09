@@ -5,6 +5,270 @@
     <title>Title</title>
 </head>
 <body>
+<h4>JavaScript使用Date对象表示日期</h4>
+<h4 style="white-space: pre-wrap; border: black 1px solid;">
+    new Date       创建日期对象
+    <hr/>
+    getFullYear    年/月/日
+    getMonth
+    getDate
+    <hr/>
+    getHours       时：分：秒：毫秒
+    getMinutes
+    getSeconds
+    getMilliseconds
+    <hr/>
+    getDay         一周的第几天
+    <hr/>
+    getTime         经历的毫秒数
+    <hr/>
+    setFullYear      修改日期和时间
+    setMonth
+    setDate
+    setHours
+    setMinutes
+    setSeconds
+
+</h4>
+
+<br/>
+<hr/>
+<div style="background-color: lightgray">
+    <h3>示例 1 : 创建日期对象</h3>
+    通过new Date创建一个日期对象，这个对象就表示当前日期(现在)<br/>
+    <hr/>
+    <br/>
+
+    <script>
+       var d = new Date();
+       document.write('new Date(): '+d);
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray">
+    <h3>示例 2 : 年/月/日</h3>
+    分别获取年/月/日<br/>
+    需要注意的是，getMonth()返回的月数，是基零的，0代表1月份(index =0 开始计算)
+    <hr/>
+    <br/>
+
+    <script>
+        var d = new Date();
+        document.write('分别获取年月日: ');
+        document.write("<br>");
+        document.write(d.getFullYear());
+        document.write("/");
+        document.write(d.getMonth()+1);
+        // document.write(d.getMonth() + "（实际月份+1）");
+        document.write("/");
+        document.write(d.getDate());
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray">
+    <h3>示例 3 :  时:分:秒:毫秒</h3>
+    分别获取时:分:秒:毫秒<br/>
+    <hr/>
+    <br/>
+
+    <script>
+        var d = new Date();
+        document.write("分别获取时:分:秒:毫秒 ");
+        document.write("<br>");
+        document.write(d.getHours());
+        document.write(":");
+        document.write(d.getMinutes());
+        document.write(":");
+        document.write(d.getSeconds());
+        document.write(":");
+        document.write(d.getMilliseconds());
+    </script>
+
+</div>
+<hr/>
+<br/>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray">
+    <h3>示例 4 : 一周的第几天</h3>
+    通过getDay()获取，今天是本周的第几天 <br/>
+    与getMonth()一样，返回值是基0的。
+    <hr/>
+    <br/>
+
+    <script>
+        var day=new Date().getDay(); //通过日期对象获取数字形式的星期几
+        var weeks = new Array("Sunday", "Monday", "Tuesday", "Wednesday","Thursday", "Friday", "Saturday")
+        document.write("Today is "+ weeks[day] + '.');
+    </script>
+
+</div>
+<hr/>
+<br/>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray">
+    <h3>示例 5 : 经历的毫秒数</h3>
+    获取从1970/1/1 08:00:00 至今的毫秒数 <br/>
+    <hr/>
+    <br/>
+
+    <script>
+        var time =new Date().getTime();
+        document.write("从1970/1/1 08:00:00 到今天的毫秒数： "+time + " (时间戳)");
+    </script>
+
+</div>
+<hr/>
+<br/>
+
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray">
+    <h3>示例 6 : 修改日期和时间</h3>
+    把日期对象设置为2012/12/12 00:00:00 <br/>
+    <hr/>
+    <br/>
+
+    <script>
+        var d = new Date();
+        document.write("修改日期对象的值为世界末日:<br>");
+        d.setFullYear(2012);
+        d.setMonth(11); //月份是基0的，所以11表示12月
+        d.setDate(12);
+
+        d.setHours(0);
+        d.setMinutes(0);
+        d.setSeconds(0);
+        d.setMilliseconds(0);
+        document.write(d);
+    </script>
+
+</div>
+<hr/>
+<br/>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray">
+    <h3>示例 7 : 练习-计算年龄 </h3>
+     选择出生日期，计算年龄 <br/>
+    <hr/>
+    <br/>
+
+    <table>
+        <tr>
+            <td>
+                <strong>请输入出生年月日</strong>
+            </td>
+        </tr>
+
+        <tr style="float: left">
+            <td>
+                <strong>年份</strong>
+            </td>
+            <td>
+                <select id="year">
+                    <script>
+                        for (let i =1949; i < 2021;i++){
+                            document.write("<option value='"+i+"'>"+i+"</option>");
+                        }
+                    </script>
+                </select>
+            </td>
+
+            <td>
+                <strong>月份</strong>
+            </td>
+            <td>
+                <select id="month">
+                    <script>
+                        for(i=1;i<13;i++){
+                            document.write("<option value='"+i+"'>"+i+"</option>");
+                        }
+                    </script>
+                </select>
+            </td>
+            <td>
+                <strong>日</strong>
+            </td>
+            <td>
+                <select id="date">
+                    <script>
+                        for(i=1;i<32;i++){
+                            document.write("<option value='"+i+"'>"+i+"</option>");
+                        }
+                    </script>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button onclick="computeAge()">计算年龄</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span style="font-weight: bold;"> 你今年的年龄为： <strong id="age"> </strong></span>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        function computeAge(){
+            const year = document.getElementById("year").value;
+            const month = document.getElementById("month").value;
+            const date = document.getElementById("date").value;
+            let today = new Date();
+            let birth = new Date();
+            birth.setFullYear(year);
+            birth.setMonth(month-1);
+            birth.setDate(date);
+            console.log(birth);
+            console.log(today);
+            let nowTime = today.getTime();
+            let birthTime = birth.getTime();
+            console.log(nowTime);
+            console.log(birthTime);
+            let age = (nowTime-birthTime)/ (1000*60*60*24*365);
+            age = Math.round(age);
+            console.log(age);
+            document.getElementById("age").innerHTML = age;
+        }
+    </script>
+
+    <hr/>
+    <br/>
+
+
+
+
+
+
+
+</div>
+<hr/>
+<br/>
+
+
+
 
 </body>
 </html>

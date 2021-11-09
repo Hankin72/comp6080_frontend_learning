@@ -5,6 +5,90 @@
     <title>Title</title>
 </head>
 <body>
+<h4>在JavaScript中可以自定义对象，添加新的属性，添加新的方法</h4>
 
+<br/>
+<hr/>
+<div style="background-color: lightgray">
+    <h3>示例 1 : 通过new Object创建对象</h3>
+    通过new Object()创建一个对象<br/>
+    <hr/>
+    <br/>
+
+    <script>
+        var hero = new Object();
+        hero.name = "盖伦"; //定义一个属性name，并且赋值
+        hero.kill = function (){
+            document.write(hero.name + " 正在杀敌"); // 定义一个函数kill
+        }
+         hero.kill();  // 调用函数 kill
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray">
+    <h3>示例 2: 通过function设计一个对象</h3>
+    通过new Object创建对象有个问题，就是每创建一个对象，都得重新定义属性和函数。 <br/>
+    这样代码的重用性不好 <br/>
+
+    那么，采用另一种方式，通过function设计一种对象。 然后实例化它 。<br/>
+
+    这种思路很像Java里的设计一种类，但是 javascript没有类，只有对象，所以我们叫设计一种对象
+
+    <hr/>
+    <br/>
+
+    <script>
+        function Hero(name){
+            this.name = name;
+            this.kill = function (){
+                document.write(this.name + " sadasda正在杀敌<br>");
+            }
+        }
+        var gareen = new Hero("盖伦");
+        gareen.kill();
+
+        var teemo = new Hero("TIMO");
+        teemo.kill();
+
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray">
+    <h3>示例 3: 为已经存在的对象，增加新的方法</h3>
+    现在Hero对象已经设计好了，但是我们发现需要追加一个新的方法keng(), <br/>
+    那么就需要通过prototype实现这一点
+    <br/>
+    <hr/>
+    <br/>
+    <script>
+        function Hero(name){
+            this.name = name;
+            this.kill = function(){
+                document.write(this.name + "正在杀敌<br>");
+            }
+        }
+        var gareen = new Hero("盖伦");
+        gareen.kill();
+        var teemo = new Hero("提莫");
+        teemo.kill();
+        Hero.prototype.keng = function (){
+            document.write(this.name + "正在坑队友<br>");
+        }
+        gareen.keng();
+        teemo.keng();
+    </script>
+</div>
+<hr/>
+<br/>
 </body>
 </html>

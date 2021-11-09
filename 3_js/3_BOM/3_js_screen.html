@@ -5,6 +5,38 @@
     <title>Title</title>
 </head>
 <body>
+<h3>Screen对象表示用户的屏幕相关信息</h3>
+
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 1 : 返回用户的屏幕大小，以及可用屏幕大小</h3>
+    如果是在台式电脑上，通常看到的可用区域的高度会比屏幕高度小一点，因为有任务栏的存在。<br/>
+
+    <hr/>
+    <br/>
+
+    <script type="text/javascript">
+        document.write("用户的屏幕分辨率: ")
+        document.write(screen.width + "*" + screen.height);
+        document.write("<br />")
+
+        document.write("可用区域大小: ")
+        document.write(screen.availWidth + "*" + screen.availHeight);
+
+
+        document.write("<br>");
+        document.write("文档显示区域的宽度"+window.innerWidth);
+        document.write("<br>");
+        document.write("文档显示区域的高度"+window.innerHeight);
+    </script>
+</div>
+<hr/>
+<br/>
+
+
 
 </body>
 </html>

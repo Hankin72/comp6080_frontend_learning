@@ -5,6 +5,84 @@
     <title>Title</title>
 </head>
 <body>
+<h3 style="white-space: pre-wrap;background-color: lightgray;  border: 1px black solid;">
+    浏览器上常见的弹出框有<hr/>
+    警告框，确认框，提示框 这些都是通过调用window的方法实现的。<hr/>
+    比如警告框用的是window.alert("警告内容")，因为很常用，所以就把window省略掉，直接使用alert
+</h3>
+
+
+<h4 style="white-space: pre-wrap; border: black 1px solid;width: 500px;">
+    alert       警示框
+    <hr/>
+    confirm     确认框
+    <hr/>
+    prompt      输入框
+</h4>
+
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 1 : 警告框</h3>
+    警告框 alert，常用于消息提示，比如注册成功等等<br/>
+    <hr/>
+    <br/>
+    <button onclick="register()">注册</button>
+
+    <script>
+       function register(){
+           alert("注册成功");
+       }
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 2: 确认框</h3>
+    确认框 confirm，常用于危险性操作的确认提示。 比如删除一条记录的时候，弹出确认框<br/>
+    confirm返回基本类型的Boolean true或者false
+    <hr/>
+    <br/>
+    <button onclick="del()">删除</button>
+
+    <script>
+        function del(){
+           let d = confirm("是否删除");
+           alert(typeof d + " "+d);
+        }
+    </script>
+</div>
+<hr/>
+<br/>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 3: 输入框</h3>
+    输入框 prompt，用于弹出一个输入框，供用户输入相关信息。<br/>
+    因为弹出的界面并不好看，很有可能和网站的风格不一致，, 所以很少会在实际工作中用到。
+    <hr/>
+    <br/>
+    <button onclick="p()">请输入用户名</button>
+
+    <script>
+        function p(){
+            let name = prompt("请输入用户名： ");
+            alert("您的用户名是： "+name);
+        }
+    </script>
+</div>
+<hr/>
+<br/>
+
+
 
 </body>
 </html>

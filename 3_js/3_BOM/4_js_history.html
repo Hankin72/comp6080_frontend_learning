@@ -5,6 +5,55 @@
     <title>Title</title>
 </head>
 <body>
+<h3>History用于记录访问历史</h3>
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 1 : 返回上一次的访问</h3>
+    <br/>
+
+    <hr/>
+    <br/>
+    <script>
+        function goBack(){
+            history.back();
+        }
+        function goForward(){
+            history.forward();
+        }
+        function openBaidu(){
+            window.open("http://baidu.com");
+        }
+    </script>
+    <button onclick="goBack()">返回</button>
+    <button onclick="goForward()">向前</button>
+    <button onclick="openBaidu()">openBaidu</button>
+
+</div>
+<hr/>
+<br/>
+
+
+<br/>
+<hr/>
+<div style="background-color: lightgray;  border: 1px black solid;">
+    <h3>示例 2 : 返回上上次的访问</h3>
+    <br/>
+
+    <hr/>
+    <br/>
+    <button onclick="goBack2()">返回上上次</button>
+
+    <script>
+        function goBack2(){
+            history.go(-2); //-1表示上次，-2表示上上次，以次类推
+        }
+    </script>
+</div>
+<hr/>
+<br/>
+
 
 </body>
 </html>
