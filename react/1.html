@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello React! </title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- 生产环境中不建议使用 -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+</head>
+<body>
+<!--<div class="practice" style="white-space: pre-wrap;">-->
+<!--    React 元素都是不可变的。当元素被创建之后，你是无法改变其内容或属性的。-->
+
+<!--    目前更新界面的唯一办法是创建一个新的元素，然后将它传入 ReactDOM.render() 方法：-->
+
+<!--    来看一下这个计时器的例子:-->
+<!--</div>-->
+
+<div id="example"></div>
+
+<div id="website"></div>
+
+
+<script type="text/babel">
+
+
+    var myStyle = {color:"red", textAlign:'center'};
+
+    class Clock extends React.Component{
+        render(){
+            return(
+                <div>
+                    <h1>Hello, world!</h1>
+                    <h2>现在是 {this.props.date.toLocaleTimeString()}.</h2>
+                </div>
+            )
+        }
+    }
+
+
+    // function Clock(props){
+    //     return(
+    //         <div>
+    //             <h1>Hello, world!</h1>
+    //             <h2>现在是 {props.date.toLocaleTimeString()}.</h2>
+    //         </div>
+    //     );
+    // }
+
+    function tick(){
+        ReactDOM.render(
+            <Clock date = {new Date()} />,
+            document.getElementById('example'),
+
+        )
+    }
+    setInterval(tick, 1000);
+
+    class Name extends React.Component{
+        render() {
+            return (
+                <h1 style={myStyle}>
+                    website name: {this.props.name}
+                </h1>
+            );
+        }
+    }
+
+    class Url extends React.Component{
+        render() {
+            return(
+                <h1>
+                    website address url: {this.props.url}
+                </h1>
+            )
+        }
+    }
+    class Nickname extends React.Component {
+        render() {
+            return <h1>网站地址：{this.props.nickname}</h1>;
+        }
+    }
+
+
+    function App(props){
+        return(
+            <div>
+                <Name name = {props.name} />
+                <Url url={props.url} />
+                <Nickname nickname = {props.nickname} />
+            </div>
+        )
+    }
+
+    ReactDOM.render(
+        <App name = {'hankin programming process to master'} url = {"http://www.google.com"} nickname = {'kakrot72'} />,
+        document.getElementById('website')
+    )
+
+
+
+
+
+    // import ReactDOM from "react-dom";
+
+    // const element = <h1>hello, world! </h1>;
+    // ReactDOM.render(
+    //     element,
+    //     document.getElementById('example')
+    // )
+    // function tick() {
+    //     const element = (
+    //         <div>
+    //             <h1>Hello, world!</h1>
+    //             <h2>现在是 {new Date().toLocaleTimeString()}.</h2>
+    //         </div>
+    //     );
+    //     ReactDOM.render(
+    //         element,
+    //         document.getElementById('example')
+    //     );
+    // }
+
+
+
+
+</script>
+
+
+</body>
+</html>
